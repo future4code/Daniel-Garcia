@@ -1,0 +1,44 @@
+body{
+    background-color:lightblue;
+    text-align: center;
+    margin 50px;
+    }
+
+.header{ 
+    color:blueviolet;
+    }
+.links{
+    font-size:18px;    
+    }    
+.content{
+box-sizing: border-box;
+margin 20px;
+height: 500px;
+width: auto;
+align-content: center;
+    }
+
+p{
+    font-size:24px;
+    }
+img{
+    width: 50px;
+    height: 50px;
+    }
+table{
+    margin: auto;
+    }
+.list {
+    list-style-type: none;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    }
+.formulario{
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: left;
+    }
+.footer{
+    
+}
