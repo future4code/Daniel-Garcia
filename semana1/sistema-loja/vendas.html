@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opção Gamer</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <p>Bem-vind@ ao <em>Opção Gamer</em>!</p>
+        <p>Tudo que você precisa para seu setup</p>
+    </div>
+
+    <div class="links">
+        <a href="index.html">Página Inicial</a>
+        <a href="ctrl-estoque.html">Controle de Estoque</a>
+        <a href="add-produto.html">Adicionar Produto</a>
+        <a href="funcionarios.html">Funcionários</a>
+        <a href="vendas.html">Vendas</a>
+        <a href="hist-vendas.html">Histórico de Vendas</a>
+    </div>
+    <h2>Vendas</h2>
+
+    <form action="">
+        <div>
+            <label for="funcionario">Funcionário </label>
+            <select id="funcionario" name="funcionario"class="button">
+                <option value="amanda">Amanda</option>
+                <option value="bianca">Bianca</option>
+                <option value="caio">Caio</option>
+                <option value="daniel">Daniel</option>
+                <option value="eduardo">Eduardo</option>
+                </select>
+        </div>
+        
+        <div>
+            <label for="horario">Horário da Venda</label>
+            <input type="text" id="venda-horario" name="venda-horario"placeholder="Horário da Venda">
+        </div>
+
+        <div>
+            <label for="mouse">Mouse</label>
+            <input type="number" id="mouse" name="mouse"placeholder="Quantidade vendida">
+        </div>
+        
+        <div>
+            <label for="teclado">Teclado</label>
+            <input type="number" id="teclado" name="teclado"placeholder="Quantidade vendida">
+        </div>
+
+        <div>
+            <label for="headset">headset</label>
+            <input type="number" id="headset" name="headset"placeholder="Quantidade vendida">
+        </div>
+
+        <div>
+            <label for="cadeira">Cadeira</label>
+            <input type="number" id="cadeira" name="cadeira"placeholder="Quantidade vendida">
+        </div>
+        <div>
+            <label for="pgto">Método de Pagamento</label>
+            <select id="pgto" name="pgto" class="button">
+                <option value="dinheiro">Dinheiro</option>
+                <option value="cartao">Cartão</option>
+                </select>
+        </div>
+        <div class="form-add">
+            <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
+            <button type="Submit" class="button">Finalizar Venda</button>
+        </div>
+
+    </form>
+
+</body>
+<footer>
+    <p>Siga-nos nas redes sociais!</p>
+
+    <div>
+        <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
+        <img src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
+        <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
+    </div>
+</footer>
+</html>
