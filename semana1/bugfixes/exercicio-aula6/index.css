@@ -31,8 +31,12 @@ img {
 
 /** removi o first-child, apenas mantendo como comentário por segurança
 div>p:first-child {
-    display: inline;
+    display: block;
 }**/
+
+p {
+    padding: 15px;
+}
 
 div img {
     background: black;
