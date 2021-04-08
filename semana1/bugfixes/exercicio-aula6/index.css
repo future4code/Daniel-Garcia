@@ -93,6 +93,9 @@ div img {
     font-size: 60px;
 }
 
+ol {
+    display: inline-block;
+}
 
 /**
   *
