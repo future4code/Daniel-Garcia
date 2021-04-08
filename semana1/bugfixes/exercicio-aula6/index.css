@@ -70,6 +70,10 @@ div img {
     opacity: 50%;
 }
 
+.icone:active {
+    opacity: 1;
+}
+
 
 /** 
   *
