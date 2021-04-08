@@ -144,6 +144,8 @@ button:hover {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    display: block;
+    margin: auto;
 }
 
 #back-button:hover {
