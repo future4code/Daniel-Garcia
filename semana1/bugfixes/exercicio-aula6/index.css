@@ -21,10 +21,6 @@ input {
     width: 500px;
 }
 
-button:focus {
-    color: white;
-}
-
 img {
     width: 50px;
 }
@@ -38,7 +34,8 @@ p {
     padding: 15px;
 }
 
-/**div img {
+/**removi o fundo preto do botão de lupa mas mantive o código como comentário
+div img {
     background: black;
 }**/
 
@@ -117,6 +114,14 @@ td button {
     height: 30px;
     border-radius: 5px;
     color: black;
+}
+
+button:active {
+    color: white;
+}
+
+button:hover {
+    background-color: rgb(200, 178, 80);
 }
 
 .container-do-search {
