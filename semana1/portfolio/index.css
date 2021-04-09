@@ -1,0 +1,81 @@
+/** 
+  *  ESTILOS GERAIS 
+  **/
+
+  * {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position:relative;
+    height: 200px;
+    background-color:whitesmoke;
+}
+
+/**normalizar o tamanho da foto de perfil e deixar redondo**/
+.foto-perfil {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin: 50px 25px;
+}
+
+h1 {
+    display: inline-block;
+    font-size: 24px;
+    border-bottom: 2px solid;
+    vertical-align: 100px;
+        
+}
+/**estrutura para os links na direita**/
+.navegacao {
+    display: inline-block;
+    position: absolute;
+    bottom: 5px;
+    right: 50px;
+    font-size: 18px;
+}
+/**Para todos os links na direita, espaçar**/
+.navegacao a {
+    margin: 8px;
+}
+
+/**estrutura das sections**/
+/**define a section como posição mãe**/
+section  {
+    position: relative;
+}
+/**link no canto superior direito**/
+section a {
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    right: 25px;
+    font-size: 18px;
+}
+
+h2 {
+    text-align: left;
+    margin-top: 25px;
+    margin-left: 30%;
+}
+
+article {
+    display: inline-block;
+    margin-left: 2%;
+    margin-right: 2%;
+
+}
+
+
+
+footer{
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background-color:whitesmoke;
+}
