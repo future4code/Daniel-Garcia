@@ -126,6 +126,7 @@ ul::after{
     font-size: 18px;
     padding: 8px;
 }
+
 /**espaçar o título do primeiro item da lista**/
 .conteudo-artigo:first-child {
     margin-top: 24px;
@@ -155,18 +156,21 @@ h3{
 }
 
 /**Contato**/
-form {
-    display: inline-block;
-    width: 300px;
-    font-size: 24px;
+.contato {
+    display: block;
+    margin: 0 auto;
+    width: 500px;
 }
+.msg {
+    display: block;
+    height: 250px;
+    width: 480px;
+    padding: 4px;
+    margin-bottom: 8px;
+    
+}
+
 label {
     width: 300px;
-    font-size: 24px;
-}
-input [type="text"]:last-of-type {
-    display: block;
-    width: 300px;
-    height: 300px;
     font-size: 24px;
 }
