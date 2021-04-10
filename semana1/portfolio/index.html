@@ -1,43 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Ueno | Full Stack Dev</title>
     <link rel="stylesheet" type="text/css" href="index.css">
-</head>
-<body>
-    <!--header com foto, nome e links-->
-    <header>
-        <img class="foto-perfil" src="img/daniel ueno.jpg" alt="Foto de Perfil" >
-        <h1>Daniel Ueno | Full Stack Dev</h1>
-        <div class="navegacao">
-            <a href="index.html">Início</a>
-            <a href="sobre-mim.html">Sobre</a>
-            <a href="projetos.html">Projetos</a>
-        </div>
-    </header>
-    <!--iníncio da main, onde vai ter section para informações pessoais e depois section para projetos-->
-    <main>
-        <!--section sobre mim-->
-        <section>
-            <h2>Olá, Eu sou Daniel Ueno<br>Estudante Web Full Stack na Labenu</h2>
-            <a href="sobre-mim.html">Currículo completo</a>
-                <!--depois de colocar o enunciado da seção, colocar os artigos relacionados-->
-                <article>
-                    <p>testesss</p>
-            
-                </article>
-        </section>
-        <!--section sobre projetos-->
-        <section>
-
-        </section>
-    </main>
-    <!--footer com tabela para contato e links de redes sociais à direita-->
-    <footer>
-        <p>adicionar tabela com contatos e links</p>
+    </head>
+    <body>
+        <!--header com foto, nome e links-->
+        <header>
+            <img class="foto-perfil" src="img/daniel ueno.jpg" alt="Foto de Perfil" >
+            <h1>Daniel Ueno | Full Stack Dev</h1>
+            <div class="navegacao">
+                <a href="index.html">Início</a>
+                <a href="contato.html">Contato</a>
+                <a href="projetos.html">Projetos</a>
+            </div>
+        </header>
+        <!--iníncio da main, onde vai ter section para informações pessoais e depois section para projetos-->
+        <main>
+                <!--tabela para contato-->
+                <section>
+                    <h2>Daniel Ueno, sou um Futuro desenvolvedor Web Full Stack =)</h2>
+                    <a href="sobre-mim.html">Entre em Contato!</a>
+                        <!--depois de colocar o enunciado da seção, colocar os artigos relacionados-->
+                        <ul class="titulo-artigo">
+                            <li> Formação
+                                <ul>    
+                                    <li class="conteudo-artigo">Técnico em Eletrônica pelo Liceu de Artes e Ofícios de São Paulo</li>
+                                    <li class="conteudo-artigo">Engenheiro de Minas formado pela Escola Politécnica de São Paulo</li>
+                                    <li class="conteudo-artigo">Estudante de desenvolvimento Web pela Labenu</li>
+                                </ul>
+                            </li>
+                        </ul> 
+                        <ul class="titulo-artigo">
+                            <li >Experiência profissional
+                                <ul>    
+                                    <li class="conteudo-artigo">Mobly: Estagiário de Marketing Performance</li>
+                                    <li class="conteudo-artigo">LACASEMIN - USP: Bolsista em Iniciação Científica</li>
+                                    <li class="conteudo-artigo">Aulas Contemporâneo: Professor de Matemática</li>
+                                </ul>
+                            </li>    
+                        </ul> 
+                        <ul class="titulo-artigo">
+                            <li >Habilidades
+                                <ul>    
+                                    <li class="conteudo-artigo">Comunicação: muito importante para trabalhos em grupos, apresentações e eficiência em resolução de problemas.</li>
+                                    <li class="conteudo-artigo">Flexibilidade: tenho conhecimento sobre metodologias ágeis e de projeto, o que possibilita a facilitação de perceber diferentes abordagens para um mesmo problema, facilitando as tomadas de decisão</li>
+                                </ul>
+                            </li>
+                        </ul>                 
+                </section>
+            <!--section sobre projetos-->
+            <section>
+                <h2>Meu Principais Projetos</h2>
+                <a href="projetos.html">Projetos Realizados</a>
+                    <!--depois de colocar o enunciado da seção, colocar os artigos relacionados-->
+                    <ul class="titulo-artigo">
+                        <li> Projeto Seletivo Labenu
+                            <ul>    
+                                <li class="conteudo-artigo"><img src="/img/projeto-seletivo.png"></li>
+                                <li class="conteudo-artigo">Este foi meu primeiro projeto utilizando html e java. Um desafio que consegui concluir em apenas 4 dias pesquisando sobre todas as bibliotecas do zero!</li>
+                                <a href="https://replit.com/@DanielUeno/Projeto-Seletivo-Labenu#index.html">Confira!</a>
+                            </ul>
+                        </li>
+                    </ul> 
+                    <ul class="titulo-artigo">
+                        <li >Lojinha Virtual
+                            <ul>    
+                                <li class="conteudo-artigo"><img src="/img/lojinha.png"></li>
+                                <li class="conteudo-artigo">Realizar a construção de uma vitrine fictícia de uma lojinha virtual, páginas de produtos e vendas e seus redirecionamentos, apenas utilizando conceitos de CSS e HTML</li>
+                                <a href="https://replit.com/@DanielUeno/Projeto-Seletivo-Labenu#index.html">Confira!</a>
+                            </ul>
+                        </li>    
+                    </ul> 
+                    <ul class="titulo-artigo">
+                        <li >BugFix
+                            <ul>    
+                                <li class="conteudo-artigo"><img src="/img/bugfixes.png"></li>
+                                <li class="conteudo-artigo">Projeto que simula ambiente de trabalho onde foram reportadas diversas <em>issues</em> em um suposto site com problemas e todas foram resolvidas através de soluções em CSS </li>
+                                <a href="https://replit.com/@DanielUeno/Projeto-Seletivo-Labenu#index.html">Confira!</a>
+                            </ul>
+                        </li>
+                    </ul>                 
+            </section>
+        </main>
+    </body>
+        <!--footer com links de redes sociais à direita-->
+        <footer>
+            <h3>Para mais informações, visite minhas redes ou entre em<br><a href="contato.html">Contato</a></h3>
+            <div class="navegacao">
+                <a href="https://github.com/future4code/Daniel-Garcia"><img src="/img/git.jpg" class="perfis-sociais"></a>
+                <a href="https://www.linkedin.com/in/daniel-ueno-58a8631b4/"><img src="/img/linked.jpg" class="perfis-sociais"></a>
+            </div>
     </footer>
-</body>
 </html>
