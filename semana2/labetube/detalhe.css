@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    height: 100vh;
+}
+
+#main-container {
+
+    height: 100%; /*utilizar 100% da altura do body*/
+    display: grid;
+    grid-template-rows: 50px 1fr 50px; /*3 linhas: header, main e footer*/
+}
+/*header tem que ser flex para os elementos ficarem separados nas extremidades*/
+header{
+    background-color: orange;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 24px;
+}
+footer {
+    display: flex;
+    background-color: slategray;
+    justify-content: center;
+    align-items: center;
+}
+/*main terá os vídeos com grid*/
+main {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 18px;
+    margin: 18px;
+}
+video {
+    width: 100%;
+}
+
+.descricao {
+    margin-top: 8px;
+    font-size: 20px;    
+}
