@@ -36,6 +36,15 @@ body {
 }
 
 /*Início do Exercício*/
+
+/**blocos ocupando todo o espaço de forma centralizado**/
+div {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
 /*temos as seguintes id's dentro da main-container
 -top.container tem 2 filhos :green header
                             :yellow menu
@@ -45,27 +54,27 @@ body {
 -footer que é o purple
 organizar a main container na vertical, com 4 linhas
 */
+
 #main-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     min-height: 100vh;
 }
-#main-container:nth-child(2) {
-    flex-grow: 2;
+
+#vertical-middle-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
-#main-container div:first-child {
-    height: 70px;
-}
-#main-container div:last-child {
-    height: 70px;
-}
+/**Estrutura está feita, ajustar tamanhos agora**/
+/*Header e footer com 20% */
 #top-container {
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
+    height: 20%;
 }
 
-#middle-container {
-    display: flex;
+div:nth-of-type(4) {
+    height: 20%;
+}
+div:nth-of-type(3) {
+    height: 60%;
 }
