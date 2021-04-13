@@ -1,0 +1,176 @@
+/** 
+  *  ESTILOS GERAIS 
+  **/
+
+  * {
+    margin: 0;
+    padding: 0;
+}
+html {
+    position: relative;
+}
+
+main {
+    display: flexbox;
+    height: 81vh;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color:rgb(247, 247, 247);
+}
+
+header {
+    position:relative;
+    height: 200px;
+    background-color:rgb(230, 230, 230);
+}
+
+.perfis-sociais {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    margin: 40px 16px;
+}
+
+/**normalizar o tamanho da foto de perfil e deixar redondo**/
+.foto-perfil {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin: 50px 25px;
+}
+
+h1 {
+    display: inline-block;
+    font-size: 24px;
+    border-bottom: 2px solid;
+    vertical-align: 100px;    
+}
+/**estrutura para os links na direita**/
+.navegacao {
+    display: inline-block;
+    position: absolute;
+    bottom: 5px;
+    right: 50px;
+    font-size: 18px;
+}
+/**Para todos os links na direita, espaçar**/
+.navegacao a {
+    margin: 8px;
+}
+
+/**estrutura das sections**/
+/**define a section como posição mãe**/
+section  {
+    position: relative;
+}
+/**links à direita**/
+section a {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 25px;
+    font-size: 18px;
+}
+/**Titulos das Sections**/
+h2 {
+    text-align: left;
+    width: 100%;
+    display: block;
+    margin-bottom: 16px;
+}
+/**definindo 
+o tamanho dos articles**/
+/** deixei comentado pois abandonei o bloco, agora estou fazendo por lista
+article {
+    display: inline-block;
+    width: 28%;
+    height: 300px;
+    margin: 2%;
+    border: 1px solid;
+}**/
+
+/**teste de lista para os articles em vez de blocos**/
+
+ul, ol, li {
+    list-style: none;
+}
+ul {
+    position: relative;
+    height: 250px;
+}
+
+li a {
+    display:block;
+    margin-top:60px;
+}
+.titulo-artigo {
+    display: inline-block;
+    width: 28%;
+    margin-right: 1%;
+    padding: 1%;
+    text-align: center;
+    font-size: 24px;
+}
+ul::after{
+    display: inline-block;
+    content: "";
+    width: 1%;
+    height: 0;
+}
+
+.conteudo-artigo {
+    display: block;
+    text-align: justify;
+    font-size: 18px;
+    padding: 8px;
+}
+
+/**espaçar o título do primeiro item da lista**/
+.conteudo-artigo:first-child {
+    margin-top: 24px;
+}
+
+/**para imagem na lista**/
+li img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit:cover;
+    margin: auto;
+}
+/**footer e mensagem**/
+footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background-color:rgb(230, 230, 230);
+    text-align: center;
+}
+h3{
+    position: absolute;
+    width: 100%;
+    margin-top: 60px;
+}
+
+/**Contato**/
+.contato {
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+}
+.msg {
+    display: block;
+    height: 250px;
+    width: 480px;
+    padding: 4px;
+    margin-bottom: 8px;
+    
+}
+
+label {
+    width: 300px;
+    font-size: 24px;
+}
