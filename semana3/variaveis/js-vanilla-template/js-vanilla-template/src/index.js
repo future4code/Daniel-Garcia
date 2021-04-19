@@ -4,7 +4,7 @@
 
 // exercício 2:
 // console.log(a, b, c) vai imprimir 10 10 10
-/*
+
 // Exercício de escrita 1
 let nome
 let idade
@@ -18,8 +18,8 @@ console.log("Olá "+ nome+ "," +" você tem " + idade + " anos")
 console.log (typeof nome)
 console.log (typeof idade)
 //os valores são atribuídos como strings pois o console sempre atribui como  string algo digitado pelo usuário através do comando console.log.
-*/
-/*
+
+
 // Exercício de escrita 2
 let pergunta = new Array()
 pergunta[0] = prompt("1. Qual o seu nome?")
@@ -56,8 +56,8 @@ else {
     pergunta[4] = prompt("5. Se café com docinhos não vai rolar, que tal codar juntos?")
     console.log("E a sua resposta fooi.... "+ pergunta[4] + "!!!")
 }
-*/
-/*
+
+
 // Exercício de escrita 3
 
 let comidasPreferidas = new Array();
@@ -82,7 +82,7 @@ console.log(comidasPreferidas[1] + "\n")
 console.log(comidasPreferidas[2] + "\n")
 console.log(comidasPreferidas[3] + "\n")
 console.log(comidasPreferidas[4] + "\n")
-*/
+
 
 //Exercício 4
 let perguntasSimOuNao = new Array(3);
