@@ -254,13 +254,24 @@ function menoresDe18(arrayDePessoas) {
 
 function multiplicaArrayPor2(array) {
    // implemente sua lógica aqui
+   for (i=0;i<array.length;i++){
+      array[i]= array[i]*2
+   }
+   return array
 }
 
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
-  // implemente sua lógica aqui
-}
+   // implemente sua lógica aqui
+   let string = []
+   for (i=0;i<array.length;i++){
+    array[i]= array[i]*2
+   
+    string.push(String(array[i]))
+ }
+ return string
+ }
 
 // Exercício 17, letra C
 
