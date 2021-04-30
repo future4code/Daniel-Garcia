@@ -104,36 +104,57 @@ function checaTriangulo(a, b, c) {
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
-   // implemente sua lógica aqui
-   let maiorNumero
-   let subtracao
-   let ehDivisivel = false
-   if (num1 >num2) {
-maiorNumero = num1
-subtracao = num1 - num2
-if (num1%num2===0) {
-   ehDivisivel = true
-}
-   }
-   else {
-maiorNumero = num2
-subtracao = num2 - num1
-if (num2%num1===0) {
-   ehDivisivel = true
-}
-   }
-   let objeto ={
-      maiorNumero: maiorNumero,
-      maiorDivisivelporMenor:ehDivisivel,
-      diferenca: subtracao
-   }
-   return objeto
+  // implemente sua lógica aqui
+  let maiorNumero;
+  let subtracao;
+  let ehDivisivel = false;
+  if (num1 > num2) {
+    maiorNumero = num1;
+    subtracao = num1 - num2;
+    if (num1 % num2 === 0) {
+      ehDivisivel = true;
+    }
+  } else {
+    maiorNumero = num2;
+    subtracao = num2 - num1;
+    if (num2 % num1 === 0) {
+      ehDivisivel = true;
+    }
+  }
+  let objeto = {
+    maiorNumero: maiorNumero,
+    maiorDivisivelporMenor: ehDivisivel,
+    diferenca: subtracao,
+  };
+  return objeto;
 }
 
 // Exercício 10
 
 function segundoMaiorEMenor(array) {
-   // implemente sua lógica aqui
+  // implemente sua lógica aqui
+  let arrayTemp = array;
+  let segundoMaior;
+  let segundoMenor;
+  for (let i = 0; i < 2; i++) {
+    segundoMaior = arrayTemp[0];
+    segundoMenor = arrayTemp[0];
+    for (number of arrayTemp) {
+      if (number > segundoMaior) {
+        segundoMaior = number;
+      }
+      if (number < segundoMenor) {
+        segundoMenor = number;
+      }
+    }
+    arrayTemp = arrayTemp.filter((number) => {
+      if (number !== segundoMenor && number !== segundoMaior) {
+        return true;
+      }
+    });
+  }
+  let resposta = [segundoMaior, segundoMenor];
+  return resposta;
 }
 
 //Exercício 11
