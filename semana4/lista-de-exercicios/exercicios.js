@@ -80,6 +80,11 @@ return respostas
 
 function retornaNNumerosPares(n) {
    // implemente sua lógica aqui
+   let pares =[]
+      for (let i=0; i<n;i++){
+         pares.push(i*2)
+      }
+   return pares
 }
 
 // Exercício 8
