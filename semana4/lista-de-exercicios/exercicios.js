@@ -302,6 +302,13 @@ const pessoas = [
 
 function retornaPessoasAutorizadas() {
    // implemente sua lógica aqui
+
+const podeBricar = pessoas.filter((number)=>{
+   if (number.idade > 13 && number.idade <60  && number.altura >= 1.5) {
+      return true
+   }
+})
+return podeBricar
 }
 
 
@@ -309,6 +316,12 @@ function retornaPessoasAutorizadas() {
 
 function retornaPessoasNaoAutorizadas() {
    // implemente sua lógica aqui
+   const naoPodeBricar = pessoas.filter((number)=>{
+      if (number.idade < 13 || number.idade >=60  || number.altura < 1.5) {
+         return true
+      }
+   })
+   return naoPodeBricar
 }
 
 //Exercício 19
