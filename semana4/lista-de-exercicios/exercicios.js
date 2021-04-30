@@ -336,7 +336,19 @@ const consultasNome = [
  //Exercício 19, letra A
  
  function ordenaPorNome() {
-  
+let ordenados
+ let nomes = consultasNome.map((number)=>{
+   return number.nome
+ })
+  ordenaArray(nomes)
+for (let i=0; i< nomes.length; i++) {
+    for (let j = 0; j < nomes.length;j++) {
+      if (nomes[i] === consultasNome[j].nome){
+          nomes[i] = consultasNome[j]
+      }
+    }
+}
+return nomes
  }
  
  // Exercício 19, letra B
@@ -349,7 +361,12 @@ const consultasNome = [
  ]
  
  function ordenaPorData() {
- 
+   let datas = consultasNome.map((number)=>{
+      return number.dataDaConsulta
+    })
+
+    
+    return datas
  }
 
 //Exercício 20
