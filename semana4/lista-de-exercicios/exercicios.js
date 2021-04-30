@@ -91,7 +91,15 @@ function retornaNNumerosPares(n) {
 
 function checaTriangulo(a, b, c) {
   // implemente sua lógica aqui
-}
+  if (a===b && b===c){
+     return "Equilátero"
+  } else if ((a===b&&a!==c) || (a===c&&a!==b) || (b===c&&a!==b) ) {
+        return "Isósceles"
+     } else {
+        return "Escaleno"
+     }
+  }
+
 
 // Exercício 9
 
