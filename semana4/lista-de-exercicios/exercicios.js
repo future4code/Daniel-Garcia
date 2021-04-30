@@ -200,6 +200,13 @@ return `Venha assistir ao filme ${objeto.nome}, de ${objeto.ano}, dirigido por $
 
 function criaRetangulo(lado1, lado2) {
    // implemente sua lógica aqui
+   let retangulo = {
+      largura: lado1,
+      altura: lado2,
+      perimetro: 2*lado1 + 2*lado2,
+      area: lado1*lado2
+   }
+   return retangulo
 }
 
 // Exercício 15
