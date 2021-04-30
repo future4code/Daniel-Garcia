@@ -382,4 +382,17 @@ const contas = [
 
 function atualizaSaldo() {
   // implemente sua lógica aqui
+  let compraPorCliente = [];
+  for (i = 0; i < contas.length; i++) {
+    let soma = 0;
+    for (let j = 0; j < contas[i].compras.length; j++) {
+      soma += contas[i].compras[j];
+    }
+    compraPorCliente[i] = soma;
+  }
+
+  for (i =0; i< contas.length;i++) {
+     contas[i].saldoTotal -= compraPorCliente[i]
+  }
+  return contas;
 }
