@@ -20,7 +20,7 @@ function retornaNumerosParesElevadosADois (array) {
       }
    })
    for (let i = 0; i < paresAoQuadrado.length; i++){
-      paresAoQuadrado[i] = paresAoQuadrado[i]*paresAoQuadrado[i] 
+      paresAoQuadrado[i] = paresAoQuadrado[i]**2 
    }
    return paresAoQuadrado
 }
@@ -29,6 +29,12 @@ function retornaNumerosParesElevadosADois (array) {
 
 function retornaNumerosPares (array) {
    // implemente sua lógica aqui
+   let pares = array.filter((number)=>{
+      if (number%2 ===0){
+         return true
+      }
+   })
+   return pares
 }
 
 //Exercício 4
