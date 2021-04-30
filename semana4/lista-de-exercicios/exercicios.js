@@ -277,6 +277,14 @@ function multiplicaArrayPor2S(array) {
 
 function verificaParidade(array) {
    // implemente sua lógica aqui
+   for (i = 0; i<array.length; i++){
+      if (array[i] %2 ===0){
+         array[i] = `${array[i]} é par`
+      } else {
+         array[i] = `${array[i]} é ímpar`
+      }
+   }
+   return array
 }
 
 // Exercício 18
