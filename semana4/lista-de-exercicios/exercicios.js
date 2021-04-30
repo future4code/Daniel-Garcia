@@ -14,6 +14,15 @@ return arrInvertido
 
 function retornaNumerosParesElevadosADois (array) {
    // implemente sua lógica aqui
+   let paresAoQuadrado = array.filter((number)=>{
+      if (number%2 ===0){
+         return true
+      }
+   })
+   for (let i = 0; i < paresAoQuadrado.length; i++){
+      paresAoQuadrado[i] = paresAoQuadrado[i]*paresAoQuadrado[i] 
+   }
+   return paresAoQuadrado
 }
 
 //Exercício 3
