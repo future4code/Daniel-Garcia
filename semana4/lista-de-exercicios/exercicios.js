@@ -230,12 +230,24 @@ const arrayDePessoas = [
 
 function maioresDe18(arrayDePessoas) {
    // implemente sua lógica aqui
+   let adultos = arrayDePessoas.filter((number)=>{
+      if (number.idade >=20){
+         return true
+      }
+   })
+   return adultos
 }
 
 // Exercício 16, letra B
 
 function menoresDe18(arrayDePessoas) {
    // implemente sua lógica aqui
+   let criancas = arrayDePessoas.filter((number)=>{
+      if (number.idade < 20){
+         return true
+      }
+   })
+   return criancas
 }
 
 // Exercício 17, letra A
