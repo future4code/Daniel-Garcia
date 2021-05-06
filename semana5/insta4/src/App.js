@@ -9,24 +9,33 @@ const MainContainer = styled.div`
   align-items: center;
 `
 const Inputs = styled.div`
-  border: 1px solid gray;
-  width: 300px;
-  margin-bottom: 10px;`
+  margin: 10px;
+  display: flex; 
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;`
+
+ const Input = styled.input`
+ margin: 4px;
+ width: 300px;` 
 
 class App extends React.Component {
   state = {
     publicacoes: [
       {
+        key: Math.random(),
         nome: "Paulinha",
         fotoUser: "https://picsum.photos/50/50",
         foto: "https://picsum.photos/200/150"
       },
       {
+        key: Math.random(),
         nome: "Bruna",
         fotoUser: "https://picsum.photos/60/50",
         foto: "https://picsum.photos/210/150"
       },
       {
+        key: Math.random(),
         nome: "Júlia",
         fotoUser: "https://picsum.photos/70/50",
         foto: "https://picsum.photos/220/150"
@@ -49,6 +58,7 @@ handleFotoPost = (event) => {
 };
 onClickPublicar = () => {
   const novoPost = {
+    key: Math.random(),
     nome: this.state.valorInputUsuario,
     fotoUser: this.state.valorInputFotoUser,
     foto: this.state.valorInputFotoPost
@@ -66,7 +76,8 @@ this.setState({
 
     const listaDePosts = this.state.publicacoes.map((postagens) =>{
       return (
-        <Post
+        <Post 
+          key = {postagens.key}
           nomeUsuario = {postagens.nome}
           fotoUsuario = {postagens.fotoUser}
           fotoPost = {postagens.foto}
@@ -75,25 +86,25 @@ this.setState({
 });
 return (
   <MainContainer>
-      {listaDePosts}
         <Inputs>
-          <input
+          <Input
             value={this.state.valorInputUsuario}
             onChange={this.handleNomeUsuario}
             placeholder={"Usuario"}
           />
-          <input
+          <Input
             value={this.state.valorInputFotoUser}
             onChange={this.handleFotoUser}
             placeholder={"link Foto"}
           />
-          <input
+          <Input
             value={this.state.valorInputFotoPost}
             onChange={this.handleFotoPost}
             placeholder={"Link foto do post"}
           />
           <button onClick={this.onClickPublicar}>Publicar</button>
         </Inputs>
+        {listaDePosts}
   </MainContainer>
 );
 }
