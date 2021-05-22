@@ -8,12 +8,15 @@ export default class App extends React.Component {
   state = {
     pagina:"",
     nome: "",
-    playlists:[]
+    playlists:[],
+    primeiroNome:""
   }
 
   componentDidMount() {
-    {localStorage.getItem("pagina") && this.setState({ tarefas: JSON.parse(localStorage.getItem("pagina")) })}
-    {localStorage.getItem("nome") && this.setState({ tarefas: JSON.parse(localStorage.getItem("nome")) })}
+    {localStorage.getItem("pagina") && this.setState({ pagina: JSON.parse(localStorage.getItem("pagina")) })}
+    {localStorage.getItem("nome") && this.setState({ nome: JSON.parse(localStorage.getItem("nome"))})}
+    {localStorage.getItem("playlists") && this.setState({ playlists: JSON.parse(localStorage.getItem("playlists")) })}
+    {localStorage.getItem("primeiroNome") && this.setState({ primeiroNome: JSON.parse(localStorage.getItem("primeiroNome")) })}
   }
   handleChange(event) {
     this.setState({value: event.target.value});
@@ -22,20 +25,25 @@ export default class App extends React.Component {
   mudaPagina = (nomeUser, playlistUser) => {
     if (this.state.pagina ==="logado") {
       this.setState({pagina:"fazer-login", nome:""})
-      localStorage.setItem("pagina", JSON.stringify(this.state.pagina));
-      localStorage.setItem("nome", JSON.stringify(this.state.nome));
+      localStorage.setItem("pagina", JSON.stringify("fazer-login"));
+      localStorage.setItem("nome", JSON.stringify(""));
+      localStorage.setItem("primeiroNome", JSON.stringify(""));
     } else {
-      this.setState({pagina:"logado", nome:nomeUser, playlists: playlistUser})
+      const nomeSplit = nomeUser.split("-")
+      this.setState({pagina:"logado", nome:nomeUser, playlists: playlistUser, primeiroNome:nomeSplit[0]})
       localStorage.setItem("pagina", JSON.stringify(this.state.pagina));
       localStorage.setItem("nome", JSON.stringify(this.state.nome));
+      localStorage.setItem("primeiroNome", JSON.stringify(nomeSplit[0]));
+      localStorage.setItem("playlists", JSON.stringify(this.state.playlists));
     }
   }
+
   render() {
     const pagina = this.state.pagina;
-    const nomeSplit = this.state.nome.split("-")
+
     const selecionaPagina = () => {
       if (pagina ==="logado") {
-        return (<Labefy />)
+        return (<Labefy playlists={this.state.playlists}/>)
       } else {
         return (<Login mudaPagina={this.mudaPagina}/>)
       }
@@ -49,7 +57,7 @@ export default class App extends React.Component {
             <h1>LabeBatman</h1>
           </Logo>
           <Logo>
-          <p>{pagina==="logado" ? `Bem vindo(a) ${nomeSplit[0]}!` : `Bem vindo estranho! faça login🦇`}</p>
+          <p>{pagina==="logado" ? `Bem vindo(a) ${this.state.primeiroNome}!` : `Bem vindo estranho! faça login🦇`}</p>
           {pagina==="logado" && <Botao onClick={this.mudaPagina}>Sair</Botao>}
           </Logo>
         </Header>
