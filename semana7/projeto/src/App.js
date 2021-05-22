@@ -20,7 +20,6 @@ export default class App extends React.Component {
   }
   handleChange(event) {
     this.setState({value: event.target.value});
-    console.log(this.state.value)
   }
   mudaPagina = (nomeUser, playlistUser) => {
     if (this.state.pagina ==="logado") {
@@ -43,7 +42,7 @@ export default class App extends React.Component {
 
     const selecionaPagina = () => {
       if (pagina ==="logado") {
-        return (<Labefy playlists={this.state.playlists}/>)
+        return (<Labefy playlists={this.state.playlists} authorization={this.state.nome}/>)
       } else {
         return (<Login mudaPagina={this.mudaPagina}/>)
       }

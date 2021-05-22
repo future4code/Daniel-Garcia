@@ -24,7 +24,7 @@ getUsers = () =>{
     }
     axios.get(url, header)
     .then((res) => {
-        this.setState({ playlists: res.data });
+        this.setState({ playlists: res.data.result.list});
         this.props.mudaPagina(this.state.Authorization, this.state.playlists);
       })
     .catch((err) => {
@@ -39,8 +39,8 @@ getUsers = () =>{
                     <FormContainer>
                         <Span>BAT-LOGIN:</Span>
                         <br/><br/>
-                        <Input type="text" 
-                        placeholder="username" 
+                        <Input type="password" 
+                        placeholder="Insira sua Bat-autenticação" 
                         value={this.state.input}
                         onChange={this.handleLogin}
                         />
