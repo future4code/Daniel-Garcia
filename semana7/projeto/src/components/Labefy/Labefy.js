@@ -31,6 +31,11 @@ export default class Labefy extends React.Component {
     handleUrl = (e) =>{
         this.setState({url: e.target.value})
     }
+    onEnterCreatePlaylist = (event) =>{
+      if (event.key ==="Enter"){
+        this.createPlaylist();
+      }
+    }
     createPlaylist = () =>{
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
         const header = {
@@ -109,6 +114,11 @@ export default class Labefy extends React.Component {
             });
             
     }
+    onEnterAddTrack= (event) =>{
+      if (event.key ==="Enter"){
+        this.addTrackToPlayList();
+      }
+    }
     addTrackToPlayList =  () =>{
             if (this.state.nomeDaMusica !== "") {
                 const header = {
@@ -168,7 +178,7 @@ export default class Labefy extends React.Component {
                   <Span onClick={()=>this.playSong(lista.url)} >{lista.artist}</Span>
                   <Span onClick={()=>this.playSong(lista.url)} >{lista.name}</Span>
                   <div style={{textAlign:"right"}} >
-                  <Button onClick={()=>this.playSong(lista.url)} >Play</Button>
+                  <Button style={{marginRight:"4px"}} onClick={()=>this.playSong(lista.url)} >Play</Button>
                   <Button onClick={()=>this.deleteTrack(lista.id)} >Delete</Button>
                   </div>
                 </BatMusicas>
@@ -182,6 +192,7 @@ export default class Labefy extends React.Component {
                         placeholder="Digite sua Nova Bat-list"
                         value={this.state.novaPlaylist}
                         onChange={this.handlenovaPLaylist}
+                        onKeyPress = {this.onEnterCreatePlaylist}
                         style={{borderBottom: "solid 1px white"}}
                         />
                         <br/>
@@ -204,12 +215,14 @@ export default class Labefy extends React.Component {
                     {batMusicas}
                     </ListaDeMusica>
                     <Morcego>
-                        <MorcegoImg src={morcego} alt="logo"/>
+                        <MorcegoImg src={morcego} alt="logo" class="responsive"/>
                     </Morcego>
                     <Busca>
                     <H3>PlayList Selecionada:</H3>
                     <br/>
-                    <H3>{this.state.nomeDoAlbum}</H3>
+                    {this.state.nomeDoAlbum &&
+                   (<Busca>
+                   <H3>{this.state.nomeDoAlbum}</H3>
                     <br/>
                     <Input type="text"
                         placeholder="nome da melhor música"
@@ -224,10 +237,13 @@ export default class Labefy extends React.Component {
                     <Input type="text"
                         placeholder="url da melhor música"
                         value={this.state.url}
-                        onChange={this.handleUrl}                    
+                        onChange={this.handleUrl}      
+                        onKeyPress = {this.onEnterAddTrack}              
                     />
                     <br/>
                     <Button style={{display: "block", margin: "0 auto"}} onClick={this.addTrackToPlayList} >Adicionar</Button>
+                    </Busca>
+                    )}
                     </Busca>
                     <Controls>
                     {this.state.player && <Audio src={this.state.player} controls autoPlay></Audio>}

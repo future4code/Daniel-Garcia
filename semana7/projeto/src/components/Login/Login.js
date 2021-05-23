@@ -11,6 +11,11 @@ export default class Login extends React.Component {
 handleLogin = (e) => {
     this.setState({input:e.target.value})
 }
+onEnterEnviar = (event) =>{
+    if (event.key ==="Enter"){
+      this.fazerLogin();
+    }
+  }
 fazerLogin = async () => {
     await this.setState({Authorization:this.state.input, input:""})
     this.getUsers()   
@@ -43,6 +48,7 @@ getUsers = () =>{
                         placeholder="Insira sua Bat-autenticação" 
                         value={this.state.input}
                         onChange={this.handleLogin}
+                        onKeyPress = {this.onEnterEnviar}
                         />
                         <br/>
                         <Submit onClick={this.fazerLogin}>Entrar</Submit>

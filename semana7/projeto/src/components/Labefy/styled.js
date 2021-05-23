@@ -96,9 +96,12 @@ grid-column: 3/4;
 background-color: rgb(94, 94, 104);
 `
 export const MorcegoImg = styled.img`
-width: 100%;
-height: 100%;
-object-fit: fill;
+display: block;
+margin: 0 auto;
+padding: 0;
+max-width: 100%;
+height: auto;
+
 `
 export const Button = styled.button`
     cursor: pointer;
