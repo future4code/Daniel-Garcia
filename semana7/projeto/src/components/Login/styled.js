@@ -4,7 +4,7 @@ import wallpaper from "../../img/wallpaper.jpg"
 
 export const ContainerLogado = styled.div`
     display: flex;
-    flex-grow: 1;
+    height: 100%;
     background-image: url(${wallpaper});
     background-repeat: no-repeat;
     background-size: cover;

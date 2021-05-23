@@ -8,52 +8,45 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     list-style: none;
     font-family: 'Arial', sans-serif;
-}
-html, #root {
-    max-width: 100vw;
-    min-height: 100vh;
-body {
-    width: 100%;
-    height: 100%;
-}
-iframe {
-    height: 80px;
-}
-}
-`
+    
+    }`;
 
 export const Body = styled.div `
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: ${props => {
+        if(props.logado ==="logado") {
+            return "50px 1fr"
+        } else {
+            return "50px 1fr 100px"
+        }
+    }
+    };
 `
 export const Header = styled.div`
     background-color:  #f9b24e;
-    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-right: 16px;
 `
-export const Logo = styled.div`
-display: flex;
-height: 100%;
-align-items: center;
-`
 export const Container = styled.div`
-display: flex;
-flex-grow: 1;
-
+    overflow-y: auto;
+    height: 100%;
 `
 export const Footer = styled.div`
     display: flex;
     background-color: #45525b;
-    height: 100px;
     justify-content: space-between;
     align-items: center;
     padding: 0 24px;
+`
+export const Logo = styled.div`
+display: flex;
+height: 100%;
+align-items: center;
 `
 export const Batman = styled.img`
 height: 80%;

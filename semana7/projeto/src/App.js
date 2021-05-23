@@ -48,7 +48,7 @@ export default class App extends React.Component {
       }
     }
     return (
-      <Body>
+      <Body logado={this.state.pagina}>
         <GlobalStyle /> 
         <Header>
           <Logo>
@@ -63,8 +63,7 @@ export default class App extends React.Component {
         <Container>
           {selecionaPagina()}
         </Container>
-        {pagina !=="logado" &&
-        <Footer>
+        {pagina !=="logado" && <Footer>
          <h4>Cansado de caçar vilões no silêncio?</h4>
          <h4>Design perfeito para adicionar e editar suas playlists</h4>
          <h4>Divirta-se em seu Bat-móvel!</h4>

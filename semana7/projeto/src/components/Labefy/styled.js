@@ -5,21 +5,17 @@ font-style: oblique;
 font-size: 50px;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 `
-export const ContainerLogado = styled.div`
-    display: flex;
-    flex-grow: 1;
-    `
 export const ContainerGrid = styled.div`
+    height: 100%;
     display: grid;
     grid-template-rows: 250px 1fr 60px;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 300px 2fr 1fr;
 `
 export const CriaPlaylist = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-around;
-
 grid-row: 1/2;
 grid-column: 1/2;
 background-image: linear-gradient(to right, rgb(94, 94, 104) , rgb(161, 161, 173));
@@ -42,9 +38,27 @@ background-image: linear-gradient(to left, rgb(94, 94, 104), rgb(161, 161, 173))
 export const ListaDeMusica = styled.div`
 display: flex;
 flex-direction: column;
+height: 100%;
 grid-row: 2/3;
 grid-column: 2/3;
 background-image: linear-gradient(to left, rgb(94, 94, 104), rgb(161, 161, 173));
+overflow-y: auto;
+::-webkit-scrollbar {
+  width: 1em;
+  border: none;
+  :active {
+    border: none;
+}
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(56, 56, 56);
+  outline: none;
+  border-radius: 8px;
+  }
 `
 export const BatMusicas= styled.div`
 display: grid;
@@ -83,6 +97,8 @@ background-color: rgb(94, 94, 104);
 `
 export const MorcegoImg = styled.img`
 width: 100%;
+height: 100%;
+object-fit: fill;
 `
 export const Button = styled.button`
     cursor: pointer;
@@ -119,7 +135,6 @@ export const Input = styled.input `
     height: 100%;
     width: 100%;
     margin:0;
-    padding:0;
     ::-webkit-media-controls-panel, video::-webkit-media-controls-panel {
                 background-color: #2A2A2A;
 }

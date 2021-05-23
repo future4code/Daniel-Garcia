@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import {ContainerLogado, ContainerGrid, CriaPlaylist, Playlist, NomePlaylist, ListaDeMusica, Busca, Controls, Morcego, MorcegoImg, H3, Button, Span, Input, Audio, BatMusicas, BatPlaylists, NomeAlbum} from "./styled"
+import {ContainerGrid, CriaPlaylist, Playlist, NomePlaylist, ListaDeMusica, Busca, Controls, Morcego, MorcegoImg, H3, Button, Span, Input, Audio, BatMusicas, BatPlaylists, NomeAlbum} from "./styled"
 import morcego from "../../img/morcego.png"
 export default class Labefy extends React.Component {
 
@@ -101,7 +101,7 @@ export default class Labefy extends React.Component {
           axios
             .get(BASE_URL, header)
             .then((res) => {
-              this.setState({playlistTracks: res.data.result.tracks, playListId: id, nomeDoAlbum: album})
+              this.setState({playlistTracks: res.data.result.tracks, playListId: id, nomeDoAlbum: album, player:""})
                 
             })
             .catch(() => {
@@ -156,6 +156,7 @@ export default class Labefy extends React.Component {
     render(){
         const batLista = this.state.playlists.map((lista)=>{
             return (
+
             <BatPlaylists>
               <Span key={lista.id} onClick={()=>this.getPlaylistTracks(lista.id, lista.name)} >{lista.name}</Span>
               <Button onClick={() => this.deleteList(lista.id)}>X</Button>
@@ -173,7 +174,6 @@ export default class Labefy extends React.Component {
                 </BatMusicas>
                 )})
         return(
-            <ContainerLogado>
                 <ContainerGrid>
                     <CriaPlaylist>
                         <H3>Adicionar Playlist</H3>
@@ -233,8 +233,6 @@ export default class Labefy extends React.Component {
                     {this.state.player && <Audio src={this.state.player} controls autoPlay></Audio>}
                     </Controls>
                 </ContainerGrid>
-            </ContainerLogado>
-
         )
     }
 }
