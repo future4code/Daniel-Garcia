@@ -6,7 +6,7 @@ export default class Labefy extends React.Component {
 
     state = {
         novaPlaylist:"",
-        playlists:this.props.playlists,
+        playlists:[],
         playListId:"",
         playlistTracks:[],
         nomeDoAlbum:"",
@@ -16,7 +16,6 @@ export default class Labefy extends React.Component {
         player:""
     }
     playSong = (url) =>{
-        console.log(url)
         this.setState({player: url})
     }
     handlenovaPLaylist = (e) =>{
@@ -164,6 +163,7 @@ export default class Labefy extends React.Component {
           }
     }
     render(){
+      this.getPlaylist()
         const batLista = this.state.playlists.map((lista)=>{
             return (
 
