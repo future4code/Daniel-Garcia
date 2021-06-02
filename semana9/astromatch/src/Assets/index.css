@@ -1,0 +1,20 @@
+.Delete {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+}
+
+.Header {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  
+    justify-items: center; 
+    align-items: center;
+}
+h2{
+    grid-column: 2;
+}
+.Botao {
+    height: 80%;
+    width: auto;
+}
