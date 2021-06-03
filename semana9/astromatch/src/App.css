@@ -12,8 +12,8 @@ html{
 }
 
 img {
-  height: auto;
-  width: 80%;
+  height: 420px;
+  width: 100%;
   object-fit: cover;
   object-position: center;
 }

@@ -1,4 +1,6 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
+import {useState} from "react"
+import {useEffect} from "react"
 import axios from "axios"
 import MatchScreen from "../TelaMatch"
 import SelectionScreen from "../TelaSelecao"
@@ -14,7 +16,7 @@ export default function Container() {
         setPage(change)
     }
     const getPerson = () =>{
-        axios.get(`${link}/person`)
+       axios.get(`${link}/person`)
         .then(res =>{
             setPerson(res.data.profile)
         })
