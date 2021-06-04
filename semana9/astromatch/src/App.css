@@ -1,8 +1,9 @@
 html{
-  background-color: slategrey;
+  background-color: rgb(223, 234, 245);
 }
 .App {
-  background-color: white;
+  background-color: rgb(251, 251, 251)
+  ;
   text-align: center;
   border: 1px solid black;
   width: 375px;

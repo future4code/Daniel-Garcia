@@ -16,6 +16,6 @@ h2{
 }
 .Botao {
     cursor: pointer;
-    height: 80%;
-    width: auto;
+    border: none;
+    background-color: transparent;
 }

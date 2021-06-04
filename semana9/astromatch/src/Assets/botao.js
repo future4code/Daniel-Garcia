@@ -4,14 +4,16 @@ import {link, header} from "./links"
 import "./index.css"
 import verPessoas from "../img/verPessoas.png"
 import verLista from "../img/verLista.png"
+import ForumIcon from '@material-ui/icons/Forum';
+import HowToRegIcon from '@material-ui/icons/HowToReg';
 
 
 export const ButtonThatChangePage = (props) => {
     return (
         <div className="Header" >
-            {!props.page && <button onClick={()=>props.changePage(true)} > <img className="Botao" src={verPessoas} alt="ver pessoas"/> </button>}
+            {!props.page && <button className="Botao" onClick={()=>props.changePage(true)} ><HowToRegIcon></HowToRegIcon></button>}
             <h2> Astromatch</h2>
-            {props.page && <button onClick={()=>props.changePage(false)} > <img className="Botao" src={verLista} alt="ver lista"/> </button>}
+            {props.page && <button className="Botao" onClick={()=>props.changePage(false)} ><ForumIcon></ForumIcon></button>}
         </div>
     )
 }
