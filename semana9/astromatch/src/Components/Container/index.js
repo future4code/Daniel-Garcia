@@ -10,7 +10,7 @@ import {link} from "../../Assets/links"
 export default function Container() {
     const [page, setPage] = useState(true)
    
-    const [person, setPerson] = useState({})
+    const [person, setPerson] = useState({name:"caregando", photo:"photo", bio:"carregando"})
     
     const changePage = (change) => {
         setPage(change)
@@ -18,7 +18,7 @@ export default function Container() {
     const getPerson = () =>{
        axios.get(`${link}/person`)
         .then(res =>{
-            setPerson(res.data.profile)
+                {res.data.profile && setPerson(res.data.profile)}
         })
         .catch(err => {
             alert("Well...where is everyone? It seems like no one wants to be shown to you, sorry")
@@ -31,7 +31,7 @@ export default function Container() {
     return(
         <div className="Container">
             <ButtonThatChangePage page={page} changePage={changePage} />
-            {page && <SelectionScreen person={person} getPerson={getPerson}/>}
+            {page  && <SelectionScreen person={person} getPerson={getPerson}/>}
             {!page && <MatchScreen />}
             <ClearMatch changePage={changePage} />
         </div>
