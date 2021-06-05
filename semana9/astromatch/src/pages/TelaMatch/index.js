@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import {Lista, Redondo, ListaNome} from "./style"
+import {Lista, Redondo, ListaNome, DivOverFlow} from "./style"
 import {listaDeMatches} from "../../services/requests"
 
 export default function MatchScreen() {
@@ -12,7 +12,7 @@ export default function MatchScreen() {
     },[])
     
     return(
-        <div>
+        <DivOverFlow>
             {matchList[0] ? 
             (matchList.map(matches => {
                 return(
@@ -23,6 +23,6 @@ export default function MatchScreen() {
                 )
             }
                 )) : (<div>Ou não temos ninguém aqui, ou estamos carregando =)</div>)}
-        </div>
+        </DivOverFlow>
     )
 }

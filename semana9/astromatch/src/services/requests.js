@@ -4,24 +4,31 @@ import {link, header, body} from "../constants/links"
 export const getPerson = (data) =>{
     axios.get(`${link}/person`)
      .then((res) =>{
-            {res.data.profile && data(res.data.profile)}
+        if(res.data.profile){data(res.data.profile)}
      })
      .catch((err) => {
          alert("Well...where is everyone? It seems like no one wants to be shown to you, sorry")
      })
  }
 
-export const chooseAPerson = (validation, data, personId) =>{
-
+export const chooseAPerson = (validation, data, personId, animacao) =>{
+    if(validation){
+        animacao("direita")
+    } else{
+        animacao("esquerda")
+    }
     axios.post(`${link}/choose-person`, body(personId, validation), header)
     .then((res) =>{
+
         if(res.data.isMatch){
             alert("You gotta a Match!")
         }
         getPerson(data)
+        animacao("")
     })
     .catch(err =>{
         console.log("erro do chooseAPerson")
+        animacao("")
     })
 }
 export const listaDeMatches = (setMatchList) =>{

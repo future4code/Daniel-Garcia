@@ -17,3 +17,6 @@ export const Lista = styled.div`
 export const ListaNome = styled.p`
     justify-self: start;
 `
+export const DivOverFlow = styled.div`
+overflow-y: auto;
+`
