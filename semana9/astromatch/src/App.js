@@ -1,10 +1,13 @@
-import './App.css';
+import GlobalStyle from "./Styles/Global"
+import {Application} from "./style"
 import Container from "./Components/Container"
+
 function App() {
   return (
-    <div className="App">
+    <Application>
+      <GlobalStyle/>
       <Container/>
-    </div>
+    </Application>
   );
 }
 
