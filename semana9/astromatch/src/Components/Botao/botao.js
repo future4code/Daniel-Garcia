@@ -1,9 +1,8 @@
 import React from "react"
-import axios from "axios"
-import {link, header} from "../../constants/links"
 import ForumIcon from '@material-ui/icons/Forum';
 import HowToRegIcon from '@material-ui/icons/HowToReg';
 import {Delete, DivHeader, TrocaPagina} from "./style"
+import {clear} from "../../services/requests"
 
 export const ButtonThatChangePage = (props) => {
     return (
@@ -16,17 +15,8 @@ export const ButtonThatChangePage = (props) => {
 }
 
 export const ClearMatch = (props) => {
-    const clear =() =>{
-    axios.put(`${link}/clear`, header)
-    .then(res =>{
-        alert("let the game begins! (again)")
-        props.changePage(true)
-        props.getPerson()
-    })
-    .catch(err =>{
-        console.log("oh no,try again", err)
-    })}
+
     return (
-        <Delete onClick={clear} >Limpar swipes e matches</Delete>
+        <Delete onClick={()=>clear(props.setPerson, props.changePage)} >Limpar swipes e matches</Delete>
     )
 }

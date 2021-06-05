@@ -33,3 +33,14 @@ export const listaDeMatches = (setMatchList) =>{
         console.log(err)
     })
 }
+
+export const clear =(data, changePage) =>{
+    axios.put(`${link}/clear`, header)
+    .then(res =>{
+        alert("let the game begins! (again)")
+        changePage(true)
+        getPerson(data)
+    })
+    .catch(err =>{
+        console.log("oh no,try again", err)
+    })}
