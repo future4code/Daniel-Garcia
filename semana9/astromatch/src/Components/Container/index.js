@@ -1,40 +1,32 @@
 import React from "react"
 import {useState} from "react"
 import {useEffect} from "react"
-import axios from "axios"
-import MatchScreen from "../TelaMatch"
-import SelectionScreen from "../TelaSelecao"
-import {ButtonThatChangePage, ClearMatch} from "../../Assets/botao"
-import {link} from "../../Assets/links"
+import MatchScreen from "../../pages/TelaMatch"
+import SelectionScreen from "../../pages/TelaSelecao"
+import {ButtonThatChangePage, ClearMatch} from "../Botao/botao"
+import {DivContainer} from "./style"
+import {getPerson} from "../../services/requests"
 
 export default function Container() {
     const [page, setPage] = useState(true)
    
-    const [person, setPerson] = useState({name:"caregando", photo:"photo", bio:"carregando"})
+    const [person, setPerson] = useState({name:"limpe os swipes", photo:"foto de perfil", bio:"não há mais ninguém para mostrar"})
     
     const changePage = (change) => {
         setPage(change)
     }
-    const getPerson = () =>{
-       axios.get(`${link}/person`)
-        .then(res =>{
-                {res.data.profile && setPerson(res.data.profile)}
-        })
-        .catch(err => {
-            alert("Well...where is everyone? It seems like no one wants to be shown to you, sorry")
-        })
-    }
+
     useEffect(() =>{
-        getPerson()
+        getPerson(setPerson)
     },[])
 
     return(
-        <div className="Container">
+        <DivContainer>
             <ButtonThatChangePage page={page} changePage={changePage} />
-            {page  && <SelectionScreen person={person} getPerson={getPerson}/>}
+            {page  && <SelectionScreen person={person} setPerson={setPerson}/>}
             {!page && <MatchScreen />}
-            <ClearMatch changePage={changePage} />
-        </div>
+            <ClearMatch changePage={changePage} setPerson={setPerson}/>
+        </DivContainer>
     )
 }
 

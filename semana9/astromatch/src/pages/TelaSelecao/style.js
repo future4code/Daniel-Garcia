@@ -1,10 +1,11 @@
-.SeparaBotao{
-    
+import styled from "styled-components"
+
+export const SeparaBotao = styled.div`
     display: flex;
     justify-content: space-around;
-}
+`
 
-.Informacoes{
+export const ProfileData = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
@@ -13,9 +14,9 @@
     height: 420px;
     width: 300px;
     margin: 0 auto;
-}
+`
 
-.BottomLeft{
+export const BottomLeft = styled.div`
     color:white;
     font-weight: 700;
     position: absolute;
@@ -25,4 +26,4 @@
     padding-right: 2%;
     -webkit-text-stroke-width: 0.7px;
     -webkit-text-stroke-color: black;
-}
+`

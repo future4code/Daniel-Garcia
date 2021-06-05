@@ -1,20 +1,17 @@
 import React from "react"
 import axios from "axios"
-import {link, header} from "./links"
-import "./index.css"
-import verPessoas from "../img/verPessoas.png"
-import verLista from "../img/verLista.png"
+import {link, header} from "../../constants/links"
 import ForumIcon from '@material-ui/icons/Forum';
 import HowToRegIcon from '@material-ui/icons/HowToReg';
-
+import {Delete, DivHeader, TrocaPagina} from "./style"
 
 export const ButtonThatChangePage = (props) => {
     return (
-        <div className="Header" >
-            {!props.page && <button className="Botao" onClick={()=>props.changePage(true)} ><HowToRegIcon></HowToRegIcon></button>}
+        <DivHeader>
+            {!props.page && <TrocaPagina onClick={()=>props.changePage(true)} ><HowToRegIcon></HowToRegIcon></TrocaPagina>}
             <h2> Astromatch</h2>
-            {props.page && <button className="Botao" onClick={()=>props.changePage(false)} ><ForumIcon></ForumIcon></button>}
-        </div>
+            {props.page && <TrocaPagina onClick={()=>props.changePage(false)} ><ForumIcon></ForumIcon></TrocaPagina>}
+        </DivHeader>
     )
 }
 
@@ -24,11 +21,12 @@ export const ClearMatch = (props) => {
     .then(res =>{
         alert("let the game begins! (again)")
         props.changePage(true)
+        props.getPerson()
     })
     .catch(err =>{
         console.log("oh no,try again", err)
     })}
     return (
-        <button className="Delete" onClick={clear} >Limpar swipes e matches</button>
+        <Delete onClick={clear} >Limpar swipes e matches</Delete>
     )
 }
