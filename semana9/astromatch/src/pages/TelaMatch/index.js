@@ -16,7 +16,7 @@ export default function MatchScreen() {
             {matchList[0] ? 
             (matchList.map(matches => {
                 return(
-                    <Lista>
+                    <Lista key={matches.id}>
                         <Redondo src={matches.photo} alt="foto redonda"/>
                         <ListaNome>{matches.name}</ListaNome>
                     </Lista>
