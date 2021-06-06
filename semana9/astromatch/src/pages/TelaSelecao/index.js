@@ -19,7 +19,7 @@ export default function SelectionScreen(props) {
                 </BottomLeft>
             </ProfileData>) : (<div>Carregando</div>)}
             <ButtonDiv >
-            <Button onClick={()=>chooseAPerson(false, props.setPerson,props.person.id,setAnimation)} ><Dislike onMouseOver={()=>setAnimation("esquerdaAlternada")} onMouseLeave={()=>setAnimation("")}className="fa fa-plus-circle" color="terciary" style={{ fontSize: 60 }} ></Dislike></Button>
+            <Button onClick={()=>chooseAPerson(false, props.setPerson,props.person.id,setAnimation)} ><Dislike onMouseOver={()=>setAnimation("esquerdaAlternada")} onMouseLeave={()=>setAnimation("")}className="fa fa-plus-circle" style={{ fontSize: 60 }} ></Dislike></Button>
             <Button onClick={()=>chooseAPerson(true, props.setPerson,props.person.id, setAnimation)} ><Like onMouseOver={()=>setAnimation("direitaAlternada")} onMouseLeave={()=>setAnimation("")} className="fa fa-plus-circle" color="secondary" style={{ fontSize: 60}} ></Like></Button>
             </ButtonDiv>
         </ContainerSelectScreen>

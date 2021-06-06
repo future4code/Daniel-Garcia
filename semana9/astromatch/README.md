@@ -23,6 +23,7 @@
 
 - [x] Dar Match
 - [x] Vizualizar Match
+- [x] Animação Vinculada a Estado
 - [x] Excluir matches recebidos
 
 </br>
