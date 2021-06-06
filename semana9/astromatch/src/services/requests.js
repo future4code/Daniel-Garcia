@@ -13,9 +13,9 @@ export const getPerson = (data) =>{
 
 export const chooseAPerson = (validation, data, personId, animacao) =>{
     if(validation){
-        animacao("direita")
+        animacao("swipeRight")
     } else{
-        animacao("esquerda")
+        animacao("swipeLeft")
     }
     axios.post(`${link}/choose-person`, body(personId, validation), header)
     .then((res) =>{

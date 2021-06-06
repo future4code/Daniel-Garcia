@@ -3,7 +3,7 @@ import {useState} from "react"
 import {useEffect} from "react"
 import MatchScreen from "../../pages/TelaMatch"
 import SelectionScreen from "../../pages/TelaSelecao"
-import {ButtonThatChangePage, ClearMatch} from "../Botao/botao"
+import {ButtonThatChangePage, ClearMatch} from "../Buttons/Buttons"
 import {DivContainer} from "./style"
 import {getPerson} from "../../services/requests"
 

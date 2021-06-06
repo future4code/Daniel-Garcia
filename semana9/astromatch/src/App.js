@@ -1,6 +1,6 @@
 import GlobalStyle from "./Styles/Global"
 import {Application} from "./style"
-import Container from "./Components/Container"
+import Container from "./components/Container"
 
 function App() {
   return (

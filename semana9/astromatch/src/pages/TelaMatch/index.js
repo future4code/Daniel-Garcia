@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import {Lista, Redondo, ListaNome, DivOverFlow} from "./style"
+import {List, RoundedImg, ListName, DivOverFlow} from "./style"
 import {listaDeMatches} from "../../services/requests"
 
 export default function MatchScreen() {
@@ -16,10 +16,10 @@ export default function MatchScreen() {
             {matchList[0] ? 
             (matchList.map(matches => {
                 return(
-                    <Lista key={matches.id}>
-                        <Redondo src={matches.photo} alt="foto redonda"/>
-                        <ListaNome>{matches.name}</ListaNome>
-                    </Lista>
+                    <List key={matches.id}>
+                        <RoundedImg src={matches.photo} alt="foto redonda"/>
+                        <ListName>{matches.name}</ListName>
+                    </List>
                 )
             }
                 )) : (<div>Ou não temos ninguém aqui, ou estamos carregando =)</div>)}
