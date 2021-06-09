@@ -1,11 +1,15 @@
 import React from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { goToHomePage, goToLastPage } from "../routes/coordinator";
+import { goToPage } from "../routes/coordinator";
 
 function HomePage() {
+  const history = useHistory()
+
   return (
     <div>
-      <p>HomePage</p>
+      <h1>HomePage - Labe X</h1>
+      <button onClick={()=>goToPage(history,"/list-trips")} >Ver Viagens</button>
+      <button onClick={()=>goToPage(history,"/login")} >Área de admin</button>
     </div>
   );
 }
