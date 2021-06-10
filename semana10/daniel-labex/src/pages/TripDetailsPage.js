@@ -1,8 +1,10 @@
 import React from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { goToHomePage, goToLastPage } from "../routes/coordinator";
+import { goToPage } from "../routes/coordinator";
 
 function TripDetailsPage() {
+  const history = useHistory()
+  const params = useParams()
   return (
     <div>
       <p>TripDetailsPage</p>
