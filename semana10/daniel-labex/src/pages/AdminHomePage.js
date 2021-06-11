@@ -6,17 +6,21 @@ import { GetListTrips } from "../services/requests"
 
 function AdminHomePage() {
   const history = useHistory();
-  const listTrips =  GetListTrips()
+  const listTrips =  GetListTrips();
+  const logout = () =>{
+    localStorage.removeItem("token");
+    goToPage(history,"/")
+  }
   return (
     <div>
       <h1>Painel Administrativo</h1>
-      <button onClick={history.goBack} >Voltar</button>
+      <button onClick={()=>goToPage(history,"/")} >Voltar para Home</button>
       <button onClick={()=>goToPage(history,"/create-trip")} >Criar Viagem</button>
-      <button onClick={()=>goToPage(history,"/login")} >Logout</button>
+      <button onClick={logout} >Logout</button>
       {listTrips && listTrips.map((list)=>{
       return(
         <div key={list.id}>
-          <p>{list.name} </p>
+          <p onClick={()=>goToPage(history,`/detail-trips/${list.id}`)} >{list.name} </p>
           <button>Deletar viagem</button>
         </div>
       )

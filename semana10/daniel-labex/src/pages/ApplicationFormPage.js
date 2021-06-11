@@ -48,7 +48,7 @@ function ApplicationFormPage() {
           onChange={onChange}
           placeholder="Nome"
           required
-          pattern={"[a-z]{3,}$"}
+          pattern={"^.{3,}"}
           title={"O Nome deve ter pelo menos 3 caracteres"}
         />
         <input
