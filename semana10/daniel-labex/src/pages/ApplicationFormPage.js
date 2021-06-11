@@ -1,7 +1,6 @@
-import React from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { goToHomePage, goToLastPage } from "../routes/coordinator";
-import { GetListTrips, applyToTrip } from "../services/requests"
+import React, {useState, useEffect} from "react";
+import { useHistory } from "react-router-dom";
+import { getListTrips, applyToTrip } from "../services/requests"
 import useForm from "../hooks/useForm";
 import Button from '@material-ui/core/Button';
 
@@ -9,8 +8,12 @@ import Button from '@material-ui/core/Button';
 function ApplicationFormPage() {
 
   const history = useHistory()
+  const [listTrips, setListTrips] = useState([])
 
-  const listTrips =  GetListTrips()
+ 
+  useEffect(() => {
+    getListTrips(setListTrips)
+  }, []);
 
   const { form, onChange, cleanFields } = useForm({
    id:"", name: "", age:"", candidateText:"", profession:"", country:""

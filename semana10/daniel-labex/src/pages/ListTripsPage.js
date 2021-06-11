@@ -1,16 +1,19 @@
-import React from "react";
-import { useHistory, useParams } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import { useHistory } from "react-router-dom";
 import { goToPage } from "../routes/coordinator";
-import { useEffect } from "react";
-import { GetListTrips } from "../services/requests"
+import { getListTrips } from "../services/requests"
 import Button from '@material-ui/core/Button';
 
 
 function ListTripsPage() {
   const history = useHistory()
 
-  
-  const listTrips =  GetListTrips()
+  const [listTrips, setListTrips] = useState([])
+
+ 
+  useEffect(() => {
+    getListTrips(setListTrips)
+  }, []);
 
   return (
     <div>
@@ -20,6 +23,7 @@ function ListTripsPage() {
     {listTrips && listTrips.map((list)=>{
       return(
         <div key={list.id}>
+          <br/>
           <p>Viagem: {list.name} </p>
           <p>Descrição: {list.description} </p>
           <p>Planeta: {list.planet} </p>

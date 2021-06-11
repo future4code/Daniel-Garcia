@@ -1,11 +1,11 @@
 import React from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { goToHomePage, goToLastPage } from "../routes/coordinator";
-
+import pokechijo from "../img/pokechijo.jpeg"
+import "../App.css"
 function ErrorPage() {
   return (
     <div>
-      <p>colocar a chijo</p>
+      <h1>error</h1>
+      <img className="Error" src={pokechijo} alt="pokechijo" />
     </div>
   );
 }

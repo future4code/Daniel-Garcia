@@ -1,10 +1,13 @@
 import {URL_BASE} from "../constants/urls"
-import useRequestData from "../hooks/useRequestData"
 import axios from "axios"
 
-export const GetListTrips = () => {
- const list = useRequestData([], `${URL_BASE}/trips`,false)
- return list.trips;
+export const getListTrips = (setData) => {
+ axios
+ .get(`${URL_BASE}/trips`)
+ .then((res) => {
+   setData(res.data.trips);
+ })
+ .catch((err) => alert(err.response.data.message));
 }
 
 export const getTripDetail = (id, setDados) => {
@@ -67,4 +70,42 @@ axios
 .catch((err)=>{
     alert(err.data)
 })
+}
+
+export const decideCandidate = (tripId, candidateId, approve, setDados) =>{
+    const headers = {          
+        headers:{
+            auth: localStorage.getItem("token")
+        }
+    }
+
+    const body ={
+        approve: approve
+    }
+    axios
+    .put(`${URL_BASE}/trips/${tripId}/candidates/${candidateId}/decide`, body, headers)
+    .then(()=>{
+        alert("Requisição realizada com sucesso")
+        getTripDetail(tripId, setDados)
+    })
+    .catch((err)=>{
+        alert(err.data)
+    })
+}
+
+export const deleteTrip = (tripId, setListTrips) =>{
+        const headers = {          
+            headers:{
+                auth: localStorage.getItem("token")
+            }
+        }
+        axios
+        .delete(`${URL_BASE}/trips/${tripId}`, headers)
+        .then(()=>{
+            alert("Adeus Viagem")
+            getListTrips(setListTrips)
+        })
+        .catch((err)=>{
+            alert(err.data)
+        })
 }

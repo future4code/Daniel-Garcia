@@ -1,12 +1,18 @@
-import React from "react";
-import { useHistory, useParams } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import { useHistory } from "react-router-dom";
 import { goToPage } from "../routes/coordinator";
-import { GetListTrips } from "../services/requests"
-
+import { getListTrips, deleteTrip } from "../services/requests"
+import useProtectedPage from "../hooks/useProtectedPage";
 
 function AdminHomePage() {
+  useProtectedPage();
   const history = useHistory();
-  const listTrips =  GetListTrips();
+  const [listTrips, setListTrips] = useState([])
+
+  useEffect(() => {
+    getListTrips(setListTrips)
+  }, []);
+
   const logout = () =>{
     localStorage.removeItem("token");
     goToPage(history,"/")
@@ -20,8 +26,8 @@ function AdminHomePage() {
       {listTrips && listTrips.map((list)=>{
       return(
         <div key={list.id}>
-          <p onClick={()=>goToPage(history,`/detail-trips/${list.id}`)} >{list.name} </p>
-          <button>Deletar viagem</button>
+          <p style={{cursor:'pointer'}} onClick={()=>goToPage(history,`/detail-trips/${list.id}`)} >{list.name} </p>
+          <button onClick={()=>deleteTrip(list.id, setListTrips)} >Deletar viagem</button>
         </div>
       )
     })}

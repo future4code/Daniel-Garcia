@@ -1,11 +1,11 @@
 import React from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { goToHomePage, goToLastPage } from "../routes/coordinator";
+import { useHistory } from "react-router-dom";
 import useForm from "../hooks/useForm";
-import { Today } from "@material-ui/icons";
 import { createTrip} from "../services/requests"
+import useProtectedPage from "../hooks/useProtectedPage";
 
 function CreateTripPage() {
+  useProtectedPage()
   const history = useHistory()
   
   const { form, onChange, cleanFields } = useForm({

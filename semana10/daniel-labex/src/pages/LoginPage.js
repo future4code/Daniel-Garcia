@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import useForm from "../hooks/useForm";
 import {Login} from "../services/requests"

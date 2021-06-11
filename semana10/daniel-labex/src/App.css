@@ -37,3 +37,16 @@
   }
 }
 
+.Error{
+  animation: chijo infinite 0.8s alternate;
+  
+}
+
+@keyframes chijo {
+  from {
+    transform: rotate(-15deg);
+  }
+  to {
+    transform: rotate(15deg);
+  }
+}

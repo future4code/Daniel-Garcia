@@ -1,24 +1,20 @@
 import React, {useState, useEffect} from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { goToPage } from "../routes/coordinator";
-import { getTripDetail} from "../services/requests";
-
-
+import { getTripDetail, decideCandidate} from "../services/requests";
+import useProtectedPage from "../hooks/useProtectedPage";
 
 function TripDetailsPage() {
-
+  useProtectedPage();
   const history = useHistory()
   const params = useParams().id
   const [dados, setDados] = useState({})
 
   useEffect(() => {
-getTripDetail(params, setDados)
+    getTripDetail(params, setDados)
   }, []);
 
   return (
     <div>
-      {console.log(dados)}
-
       <button onClick={history.goBack} >Voltar</button>
       <h1>Viagem:</h1>
         <p>Nome: {dados.name}</p>
@@ -29,13 +25,14 @@ getTripDetail(params, setDados)
         <h2>Lista de Candidatos</h2>
         {dados && dados.candidates && dados.candidates.map((cand)=>{
           return(
-            <div>
-          <p key={cand.id}>{cand.name}</p>
-          <p key={cand.id}>{cand.name}</p>
-          <p key={cand.id}>{cand.name}</p>
-          <p key={cand.id}>{cand.name}</p>
-
-            </div>
+          <div key={cand.id}>
+            <p>Nome:{cand.name}</p>
+            <p>Idade:{cand.age}</p>
+            <p>País:{cand.country}</p>
+            <p>Profissão:{cand.profession}</p>
+            <button onClick={()=>decideCandidate(params, cand.id, true, setDados)} >Aprovar</button>
+            <button onClick={()=>decideCandidate(params, cand.id, false, setDados)}>Reprovar</button>
+          </div>
           )
         })}
       <h2>Lista de Aprovados</h2>
