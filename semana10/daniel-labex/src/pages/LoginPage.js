@@ -37,7 +37,7 @@ function LoginPage() {
           name={"email"}
           value={form.email}
           onChange={onChange}
-          placeholder="Nome"
+          placeholder="E-mail"
           required
           pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"}
           title={"O e-mail deve ser do tipo texto@texto.texto"}

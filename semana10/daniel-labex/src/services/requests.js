@@ -28,3 +28,21 @@ export const Login = async (body)=> {
       .catch((err) => alert(err.response.data.message));
 return data
 }
+
+export const applyToTrip = (form)=>{
+const body ={
+    name: form.name,
+    age: Number(form.age),
+    applicationText: form.candidateText,
+    profession: form.profession,
+    country: form.country
+}
+axios
+.post(`${URL_BASE}/trips/${form.id}/apply`, body )
+.then(()=>{
+    alert("Boa sorte!")
+})
+.catch((err)=>{
+    alert(err.data)
+})
+}

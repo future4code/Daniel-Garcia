@@ -5,7 +5,9 @@ import Button from '@material-ui/core/Button';
 
 function HomePage() {
   const history = useHistory()
-
+  const loginValidation = () =>{
+    
+  }
   return (
     <div>
       <h1>HomePage - Labe X</h1>
