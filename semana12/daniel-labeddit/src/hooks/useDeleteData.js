@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios"
 
-export const useRequestData = (url,headers) =>{
+export const useDeleteData = (url, headers) =>{
   const [data, setData] = useState([]);
   const [error, setError] = useState(status=false, error="");
   const getData =() =>{
 
-    axios.get(url, headers)
+    axios.delete(url, headers)
       .then((res)=>{
           setData(res.data)        
       })
