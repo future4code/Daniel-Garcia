@@ -5,17 +5,17 @@ import Button from '@material-ui/core/Button'
 import useForm from '../../hooks/useForm'
 import { useHistory } from 'react-router-dom'
 import CircularProgress from '@material-ui/core/CircularProgress'
-const login = () =>{
-    
-}
-const LoginForm = ({setRightButtonText}) => {
+import { login } from "../../services/userRequests"
+import { useGlobalSetters } from "../../global/GlobalState"
+const LoginForm = () => {
     const [form, onChange, clear] = useForm({ email: "", password: "" })
     const history = useHistory()
     const [isLoading, setIsLoading] = useState(false)
-
+    const { setRightButtonText} = useGlobalSetters()
     const onSubmitForm = (event) => {
         event.preventDefault()
-        login(form, clear, history, setRightButtonText, setIsLoading)
+        login(form, setIsLoading, clear, history, setRightButtonText)
+        
     }
 
     return (

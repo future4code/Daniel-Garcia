@@ -1,52 +1,51 @@
 import { BASE_URL } from "../constants/urls";
-import { usePostData } from "../hooks/usePostData";
-import { usePutData } from "../hooks/usePutData"
-import { useDeleteData } from "../hooks/useDeleteData"
+import axios from "axios"
 
-export const createComment = (id,body) => {
-  const headers = {
-    headers: { "Content-Type": application / json,
-    "Authorization": localStorage.getItem("token")
-  }
-}
-  const { request, error } = usePostData(
-    `${BASE_URL}/posts/${id}/comments`, body, headers
-  );
-  return { request, error };
-};
+export const createComment = (id,body,setIsLoading, clear, setComentarios) => {
+  axios.post(
+    `${BASE_URL}/posts/${id}/comments`, body, {headers: {Authorization: localStorage.getItem("token")}})
+    .then((res)=>{
+      alert(res.data)
+      clear()
+      setIsLoading(false)
+      axios.get(`${BASE_URL}/posts/${id}/comments`, {headers: {Authorization: localStorage.getItem("token")}})
+      .then((res)=>{setComentarios(res.data)})
+    })
+    .catch((err)=>{
+      console.log(err)
+      alert("tente novamente")
+      setIsLoading(false)
+      
+    })
+  };
 
-export const createCommentVote = (id,body) => {
-  const headers = {
-    headers: { "Content-Type": application / json,
-    "Authorization": localStorage.getItem("token")
-  }
-}
-  const { request, error } = usePostData(
-    `${BASE_URL}/comments/${id}/votes`, body, headers
-  );
-  return { request, error };
-};
+// export const CreateCommentVote = (id,body) => {
+//   const headers = {
+//     headers: { "Content-Type": application / json,
+//     "Authorization": localStorage.getItem("token")
+//   }
+// }
+//   axios.post(
+//     `${BASE_URL}/comments/${id}/votes`, body, {headers: {Authorization: localStorage.getItem("token")}}
+//   )
+//   .then()
+//   .catch()
+// };
 
-export const changeCommentVote = (id,body) => {
-  const headers = {
-    headers: { "Content-Type": application / json,
-    "Authorization": localStorage.getItem("token")
-  }
-}
-  const { request, error } = usePutData(
-    `${BASE_URL}/comments/${id}/votes`, body, headers
-  );
-  return { request, error };
-};
+// export const ChangeCommentVote = (id,body) => {
 
-export const deleteCommentVote = (id) => {
-  const headers = {
-    headers: { "Content-Type": application / json,
-    "Authorization": localStorage.getItem("token")
-  }
-}
-  const { request, error } = useDeleteData(
-    `${BASE_URL}/comments/${id}/votes`, headers
-  );
-  return { request, error };
-};
+//   axios.put(
+//     `${BASE_URL}/comments/${id}/votes`, body, {headers: {Authorization: localStorage.getItem("token")}}
+//   )
+//   .then()
+//   .catch()
+// };
+
+// export const DeleteCommentVote = (id) => {
+
+//   axios.delete(
+//     `${BASE_URL}/comments/${id}/votes`, {headers: {Authorization: localStorage.getItem("token")}}
+//   )
+//   .then()
+//   .catch()
+// };

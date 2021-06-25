@@ -3,7 +3,7 @@ import axios from "axios"
 
 export const useDeleteData = (url, headers) =>{
   const [data, setData] = useState([]);
-  const [error, setError] = useState(status=false, error="");
+  const [error, setError] = useState({status:false, error:""});
   const getData =() =>{
 
     axios.delete(url, headers)
@@ -11,11 +11,11 @@ export const useDeleteData = (url, headers) =>{
           setData(res.data)        
       })
       .catch((err)=>{
-        setError(status=true, error=err)
+        setError({status:true, error:err})
       })
   } 
    useEffect(() => {
     getData();
-  }, [query]);
+  }, []);
   return {data, error}
   }

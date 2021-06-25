@@ -3,7 +3,7 @@ import axios from "axios"
 
 export const usePostData = (url,query, headers) =>{
   const [data, setData] = useState([]);
-  const [error, setError] = useState(status=false, error="");
+  const [error, setError] = useState({status:false, error:""});
   const getData =() =>{
 
     axios.post(url, query, headers)
@@ -11,7 +11,7 @@ export const usePostData = (url,query, headers) =>{
           setData(res.data)        
       })
       .catch((err)=>{
-        setError(status=true, error=err)
+        setError({status:true, error:err})
       })
   } 
    useEffect(() => {

@@ -2,7 +2,7 @@ import React from "react";
 
 function ErrorPage() {
   return (
-<div>Erro!</div>
+<div>Erro rude!</div>
   );
 }
 

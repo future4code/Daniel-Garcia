@@ -1,13 +1,17 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom"
+
 import Router from "../src/routes/Router";
+import Header from "./components/Header/Header";
 import { GlobalState } from "./global/GlobalState";
-import Header from "./components/Header/Header"
 
 function App() {
   return (
     <GlobalState>
+      <BrowserRouter>
         <Header />
-        <Router/>
+        <Router />
+      </BrowserRouter>
     </GlobalState>
   );
 }

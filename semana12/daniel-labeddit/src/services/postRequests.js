@@ -1,78 +1,69 @@
 import { BASE_URL } from "../constants/urls";
-import { useRequestData } from "../hooks/useRequestData";
-import { usePostData } from "../hooks/usePostData";
-import { usePutData } from "../hooks/usePutData"
-import { useDeleteData } from "../hooks/useDeleteData"
+import axios from "axios";
 
-export const getPosts = () => {
-  const headers = {
-    headers: { "Content-Type": application / json,
-    "Authorization": localStorage.getItem("token")
-  }
-  }
-  const { request, error } = useRequestData(
-    `${BASE_URL}/posts`, headers
-  );
+export const getPosts = (setData) => {
 
-  return { request, error };
+  axios.get(`${BASE_URL}/posts`, {headers: {Authorization: localStorage.getItem("token")}
+})
+  .then((res)=>{
+    setData(res.data) 
+  })
+  .catch(()=>{
+    alert("Erro ao carregar Feed")
+  })
+ 
 };
 
-export const getPostComments = (id) => {
-  const headers = {
-    headers: { "Content-Type": application / json,
-    "Authorization": localStorage.getItem("token")
-  }
-}
-  const { request, error } = useRequestData(
-    `${BASE_URL}/posts/${id}/comments`, headers
-  );
-  return { request, error };
+export const createPost = (body, setIsLoading, clear) => {
+
+  axios.post(
+    `${BASE_URL}/posts`, body, {headers: {Authorization: localStorage.getItem("token")}})
+    .then((res)=>{
+
+    })
+    .catch((err)=>{
+
+    })
 };
 
-export const createPost = (body) => {
-  const headers = {
-    headers: { "Content-Type": application / json,
-    "Authorization": localStorage.getItem("token")
-  }
-}
-  const { request, error } = usePostData(
-    `${BASE_URL}/posts`, body, headers
-  );
-  return { request, error };
-};
+// export const GetPostComments = (id) => {
+//   const headers = {
+//     Headers: `Authorization": ${localStorage.getItem("token")}`,
+//   };
 
-export const createPostVote = (id,body) => {
-  const headers = {
-    headers: { "Content-Type": application / json,
-    "Authorization": localStorage.getItem("token")
-  }
-}
-  const { request, error } = usePostData(
-    `${BASE_URL}/posts/${id}/votes`, body, headers
-  );
-  return { request, error };
-};
+//   const { request, error } = useRequestData(
+//     `${BASE_URL}/posts/${id}/comments`, headers
+//   );
+//   return { request, error };
+// };
 
-export const changePostVote = (id,body) => {
-  const headers = {
-    headers: { "Content-Type": application / json,
-    "Authorization": localStorage.getItem("token")
-  }
-}
-  const { request, error } = usePutData(
-    `${BASE_URL}/posts/${id}/votes`, body, headers
-  );
-  return { request, error };
-};
+// export const CreatePostVote = (id,body) => {
+//   const headers = {
+//     Headers: `Authorization": ${localStorage.getItem("token")}`,
+//   };
 
-export const deletePostVote = (id) => {
-  const headers = {
-    headers: { "Content-Type": application / json,
-    "Authorization": localStorage.getItem("token")
-  }
-}
-  const { request, error } = useDeleteData(
-    `${BASE_URL}/posts/${id}/votes`, headers
-  );
-  return { request, error };
-};
+//   const { request, error } = usePostData(
+//     `${BASE_URL}/posts/${id}/votes`, body, headers
+//   );
+//   return { request, error };
+// };
+
+// export const ChangePostVote = (id,body) => {
+//   const headers = {
+//     Headers: `Authorization": ${localStorage.getItem("token")}`,
+//   };
+//   const { request, error } = usePutData(
+//     `${BASE_URL}/posts/${id}/votes`, body, headers
+//   );
+//   return { request, error };
+// };
+
+// export const DeletePostVote = (id) => {
+//   const headers = {
+//     Headers: `Authorization": ${localStorage.getItem("token")}`,
+//   };
+//   const { request, error } = useDeleteData(
+//     `${BASE_URL}/posts/${id}/votes`, headers
+//   );
+//   return { request, error };
+// };

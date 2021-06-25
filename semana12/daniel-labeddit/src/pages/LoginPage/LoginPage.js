@@ -5,13 +5,14 @@ import {goToSignUp} from "../../routes/coordinator"
 import useUnprotectedPage from "../../hooks/useUnprotectedPage"
 import Button from '@material-ui/core/Button'
 import { ScreenContainer, LogoImage, SignUpButtonContainer } from "./styledLoginPage"
+import logo from "../../assets/logo.png"
 
 function LoginPage() {
   useUnprotectedPage()
   const history = useHistory()
   return (
       <ScreenContainer>
-          <LogoImage src={null} />
+          <LogoImage src={logo} />
           <LoginForm />
           <SignUpButtonContainer>
               <Button
