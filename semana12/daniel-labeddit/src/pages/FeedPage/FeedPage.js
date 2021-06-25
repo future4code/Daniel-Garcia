@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useprotectedPage from "../../hooks/useProtectedPage";
 import { useGlobalStates, useGlobalSetters } from "../../global/GlobalState";
 import { Container } from "@material-ui/core";
@@ -22,7 +22,8 @@ import Button from "@material-ui/core/Button";
 import useForm from "../../hooks/useForm";
 import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
-
+import { BASE_URL } from "../../constants/urls";
+import { useRequestData } from "../../hooks/useRequestData";
 function FeedPage() {
   const history = useHistory();
   useprotectedPage();
@@ -30,32 +31,39 @@ function FeedPage() {
   const { data } = useGlobalStates();
   const [isLoading, setIsLoading] = useState(false);
   const [form, onChange, clear] = useForm({ title: "", body: "" });
+  const token = localStorage.getItem("token");
+  const posts = useRequestData(`${BASE_URL}/posts`, {
+    headers: { Authorization: localStorage.getItem("token") },
+  }).data;
 
+  useEffect(() => {
+    setData(posts);
+  }, [posts]);
   const onSubmitForm = (event) => {
     setIsLoading(true);
     event.preventDefault();
     createPost(form, setIsLoading, clear, setData);
   };
-  const voteUp = (id, userVote) => {
+  const voteUp = async (id, userVote) => {
     const body = { direction: 1 };
     if (userVote) {
       if (userVote === 1) {
         deletePostVote(id, setData);
       } else {
-        deletePostVote(id, setData);
+        await deletePostVote(id, setData);
         changePostVote(id, body, setData);
       }
     } else {
       createPostVote(id, body, setData);
     }
   };
-  const voteDown = (id, userVote) => {
+  const voteDown = async (id, userVote) => {
     const body = { direction: -1 };
     if (userVote) {
       if (userVote === -1) {
         deletePostVote(id, setData);
       } else {
-        deletePostVote(id, setData);
+        await deletePostVote(id, setData);
         changePostVote(id, body, setData);
       }
     } else {

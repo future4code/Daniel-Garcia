@@ -11,7 +11,7 @@ const LoginForm = () => {
   const [form, onChange, clear] = useForm({ email: "", password: "" });
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
-  const { setRightButtonText } = useGlobalSetters();
+  const { setRightButtonText, setData } = useGlobalSetters();
   const onSubmitForm = (event) => {
     event.preventDefault();
     login(form, setIsLoading, clear, history, setRightButtonText);

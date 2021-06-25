@@ -6,7 +6,8 @@ export const signUp = (
   setIsLoading,
   clear,
   history,
-  setRightButtonText
+  setRightButtonText,
+
 ) => {
   setIsLoading(true);
   const headers = {

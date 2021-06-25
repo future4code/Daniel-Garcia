@@ -51,52 +51,52 @@ function PostPage() {
     event.preventDefault();
     createComment(params, form, setIsLoading, clear, setComentarios);
   };
-  const voteUp = (id, userVote) => {
+  const voteUp = async (id, userVote) => {
     const body = { direction: 1 };
     if (userVote) {
       if (userVote === 1) {
         deletePostVote(id, setData);
       } else {
-        deletePostVote(id, setData);
+        await deletePostVote(id, setData);
         changePostVote(id, body, setData);
       }
     } else {
       createPostVote(id, body, setData);
     }
   };
-  const voteDown = (id, userVote) => {
+  const voteDown = async (id, userVote) => {
     const body = { direction: -1 };
     if (userVote) {
       if (userVote === -1) {
         deletePostVote(id, setData);
       } else {
-        deletePostVote(id, setData);
+        await deletePostVote(id, setData);
         changePostVote(id, body, setData);
       }
     } else {
       createPostVote(id, body, setData);
     }
   };
-  const voteUpComment = (id, userVote) => {
+  const voteUpComment = async (id, userVote) => {
     const body = { direction: 1 };
     if (userVote) {
       if (userVote === 1) {
         deleteCommentVote(id, params, setComentarios);
       } else {
-        deleteCommentVote(id, params, setComentarios);
+        await deleteCommentVote(id, params, setComentarios);
         changeCommentVote(id, body, params, setComentarios);
       }
     } else {
       createCommentVote(id, body, params, setComentarios);
     }
   };
-  const voteDownComment = (id, userVote) => {
+  const voteDownComment = async (id, userVote) => {
     const body = { direction: -1 };
     if (userVote) {
-      if (userVote === 1) {
+      if (userVote === -1) {
         deleteCommentVote(id, params, setComentarios);
       } else {
-        deleteCommentVote(id, params, setComentarios);
+        await deleteCommentVote(id, params, setComentarios);
         changeCommentVote(id, body, params, setComentarios);
       }
     } else {
