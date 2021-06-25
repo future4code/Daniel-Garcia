@@ -2,68 +2,106 @@ import { BASE_URL } from "../constants/urls";
 import axios from "axios";
 
 export const getPosts = (setData) => {
-
-  axios.get(`${BASE_URL}/posts`, {headers: {Authorization: localStorage.getItem("token")}
-})
-  .then((res)=>{
-    setData(res.data) 
-  })
-  .catch(()=>{
-    alert("Erro ao carregar Feed")
-  })
- 
+  axios
+    .get(`${BASE_URL}/posts`, {
+      headers: { Authorization: localStorage.getItem("token") },
+    })
+    .then((res) => {
+      setData(res.data);
+    })
+    .catch(() => {
+      alert("Erro ao carregar Feed");
+    });
 };
 
-export const createPost = (body, setIsLoading, clear) => {
-
-  axios.post(
-    `${BASE_URL}/posts`, body, {headers: {Authorization: localStorage.getItem("token")}})
-    .then((res)=>{
-
+export const createPost = (body, setIsLoading, clear, setData) => {
+  axios
+    .post(`${BASE_URL}/posts`, body, {
+      headers: { Authorization: localStorage.getItem("token") },
     })
-    .catch((err)=>{
-
+    .then((res) => {
+      alert(res.data);
+      setIsLoading(false);
+      clear();
+      axios
+        .get(`${BASE_URL}/posts`, {
+          headers: { Authorization: localStorage.getItem("token") },
+        })
+        .then((res) => {
+          setData(res.data);
+        })
+        .catch((err) => {
+          alert(err.response.message);
+        });
     })
+    .catch((err) => {
+      console.log(err.response.message);
+      setIsLoading(false);
+    });
 };
 
-// export const GetPostComments = (id) => {
-//   const headers = {
-//     Headers: `Authorization": ${localStorage.getItem("token")}`,
-//   };
+export const createPostVote = (id, body, setData) => {
+  axios
+    .post(`${BASE_URL}/posts/${id}/votes`, body, {
+      headers: { Authorization: localStorage.getItem("token") },
+    })
+    .then(() => {
+      axios
+        .get(`${BASE_URL}/posts`, {
+          headers: { Authorization: localStorage.getItem("token") },
+        })
+        .then((res) => {
+          setData(res.data);
+        })
+        .catch((err) => {
+          alert(err.response.message);
+        });
+    })
+    .catch((err) => {
+      console.log(err.response.message);
+    });
+};
 
-//   const { request, error } = useRequestData(
-//     `${BASE_URL}/posts/${id}/comments`, headers
-//   );
-//   return { request, error };
-// };
+export const changePostVote = (id, body, setData) => {
+  axios
+    .put(`${BASE_URL}/posts/${id}/votes`, body, {
+      headers: { Authorization: localStorage.getItem("token") },
+    })
+    .then(() => {
+      axios
+        .get(`${BASE_URL}/posts`, {
+          headers: { Authorization: localStorage.getItem("token") },
+        })
+        .then((res) => {
+          setData(res.data);
+        })
+        .catch((err) => {
+          alert(err.response.message);
+        });
+    })
+    .catch((err) => {
+      console.log(err.response.message);
+    });
+};
 
-// export const CreatePostVote = (id,body) => {
-//   const headers = {
-//     Headers: `Authorization": ${localStorage.getItem("token")}`,
-//   };
-
-//   const { request, error } = usePostData(
-//     `${BASE_URL}/posts/${id}/votes`, body, headers
-//   );
-//   return { request, error };
-// };
-
-// export const ChangePostVote = (id,body) => {
-//   const headers = {
-//     Headers: `Authorization": ${localStorage.getItem("token")}`,
-//   };
-//   const { request, error } = usePutData(
-//     `${BASE_URL}/posts/${id}/votes`, body, headers
-//   );
-//   return { request, error };
-// };
-
-// export const DeletePostVote = (id) => {
-//   const headers = {
-//     Headers: `Authorization": ${localStorage.getItem("token")}`,
-//   };
-//   const { request, error } = useDeleteData(
-//     `${BASE_URL}/posts/${id}/votes`, headers
-//   );
-//   return { request, error };
-// };
+export const deletePostVote = (id, setData) => {
+  axios
+    .delete(`${BASE_URL}/posts/${id}/votes`, {
+      headers: { Authorization: localStorage.getItem("token") },
+    })
+    .then(() => {
+      axios
+        .get(`${BASE_URL}/posts`, {
+          headers: { Authorization: localStorage.getItem("token") },
+        })
+        .then((res) => {
+          setData(res.data);
+        })
+        .catch((err) => {
+          alert(err.response.message);
+        });
+    })
+    .catch((err) => {
+      console.log(err.response.message);
+    });
+};

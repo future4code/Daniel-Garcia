@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
-import axios from "axios"
+import axios from "axios";
 
-export const useRequestData = (url,headers) =>{
+export const useRequestData = (url, headers) => {
   const [data, setData] = useState([]);
-  const getData =() =>{
-
-    axios.get(url, headers)
-      .then((res)=>{
-          setData(res)  
+  const getData = () => {
+    axios
+      .get(url, headers)
+      .then((res) => {
+        setData(res);
       })
-      .catch((err)=>{
-        alert(err)
-      })
-  } 
-   useEffect(() => {
+      .catch((err) => {
+        alert(err);
+      });
+  };
+  useEffect(() => {
     getData();
   }, []);
-  return data
-  }
+  return data;
+};
