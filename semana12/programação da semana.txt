@@ -1,0 +1,7 @@
+segunda: ver as aulas
+terça: Arquivos base e ver API
+quarta: diagramação das páginas
+quinta: requests e funções
+sexta: integração e desafios
+
+esquema básico das tasks, talvez vá mais rápido ou devagar, mas hoje o dia vai ser em tarefas outras que não envolvem a  labenu
