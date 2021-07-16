@@ -1,0 +1,15 @@
+1-
+a) método GET
+b) como a lista retorna vários usuários, deixaria como "/users"
+
+2-
+a) os parâmetros podem ser passados via query na url pq é mais aberto
+b) construindo um type e verificando se os parâmetros possuem o mesmo typeof
+
+3-
+a) pode ser query ou path params, depende da construção
+b) alterado
+
+4-
+a) nada, só o verbo
+b) Put não deve ser usado para criar, mas para modificar objetos já existentes.
