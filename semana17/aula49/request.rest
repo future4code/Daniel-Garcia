@@ -1,0 +1,11 @@
+###
+GET http://localhost:3003/users/query?userQuery=Darvas
+
+###
+GET http://localhost:3003/users?name=Darvas
+
+###
+GET http://localhost:3003/filtered-users?type=Teacher&orderBy=name
+
+###
+GET http://localhost:3003/paged-users/3
