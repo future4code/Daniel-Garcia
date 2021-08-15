@@ -1,0 +1,16 @@
+//signup
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+   "name": "Daniel", 
+   "email": "oalr@gmail.com" ,
+   "password": "batman",
+    "role": "ADMIN"
+}
+//getuser
+###
+GET http://localhost:3003/user
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJhNjIxNTU4LThjNWYtNGMyYi05NTNhLWNhZGVmMDg4NDBlMyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyOTA1NDcyMCwiZXhwIjoxNjI5MTQxMTIwfQ.04EMry82Xzo3n5iMm1H35EDFQ_hCBg8UVThUsT30LiI
+
