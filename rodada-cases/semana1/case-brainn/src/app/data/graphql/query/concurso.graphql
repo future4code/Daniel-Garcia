@@ -1,0 +1,8 @@
+query concurso($id: ID!) {
+  concurso(id: $id) {
+    id
+    loteria
+    numeros
+    data
+  }
+}
