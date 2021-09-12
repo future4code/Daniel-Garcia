@@ -20,7 +20,6 @@ export const ApplicationPage: React.FC = () => {
   }
 
   const data = getAllData(drawGame);
-  console.log(data);
   return (
     <PageStyled>
       <DrawGamesOptions page={drawGame} id={data?.id} data={data?.data} />
