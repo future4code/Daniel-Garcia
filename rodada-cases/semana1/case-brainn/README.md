@@ -2,7 +2,7 @@
 
 # Brainn Challenge
 
-  <p Align="center">link do surge:   <a href="https://taq-daniel-rickandmorty.surge.sh/">Resultados de Loteria</a></p>
+  <p Align="center">link do surge:   <a href="https://knowing-discovery.surge.sh/">Resultados de Loteria</a></p>
   <p Align="center">Case FrontEnd Legado - Brainn Co.</p>
 
 ### Features
