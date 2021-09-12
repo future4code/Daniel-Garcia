@@ -49,12 +49,12 @@ export const SelectDrawGame: React.FC<SelectProps> = ({ page }) => {
     },
   ];
   const options = drawGameOptions.filter(
-    (item) => item.option !== drawGame(page)
+    (item) => item.option !== stringTodrawGame(page)
   );
-  return <Select selected={drawGame(page)} options={options} />;
+  return <Select selected={stringTodrawGame(page)} options={options} />;
 };
 
-export const drawGame = (page: string): DrawGames => {
+export const stringTodrawGame = (page: string): DrawGames => {
   switch (page) {
     case "megasena":
       return DrawGames.MegaSena;

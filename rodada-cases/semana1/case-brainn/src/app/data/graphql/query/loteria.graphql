@@ -1,6 +1,0 @@
-query {
-  loterias {
-    id
-    nome
-  }
-}

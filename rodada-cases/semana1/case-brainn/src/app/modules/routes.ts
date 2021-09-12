@@ -8,9 +8,10 @@ export const routes = {
   error: "/error",
 };
 
-
 export const routeValidation = (route: string): boolean => {
   switch (route) {
+    case "":
+      return true;
     case "megasena":
       return true;
     case "quina":

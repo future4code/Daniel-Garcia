@@ -69,7 +69,7 @@ export enum DrawGames {
   Lotofacil = "LOTOFÁCIL",
   Lotomania = "LOTOMANIA",
   Timemania = "TIMEMANIA",
-  DiaDeSorte = "DIA-DE-SORTE",
+  DiaDeSorte = "DIA DE SORTE",
 }
 
 export enum ZIndex {

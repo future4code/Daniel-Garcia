@@ -13,13 +13,11 @@ export const ElementsStyled = styled.div`
   left: 0;
   padding: ${Spacing.Page};
   display: grid;
-  height: 100vh;
-  width: 100%;
   grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: 1fr;
+  height: 100vh;
   @media all and (max-width: ${Breakpoint.md}em) {
     height: 60vh;
-    justify-content: center;
+    width: 100%;
   }
 `;
 
@@ -37,11 +35,11 @@ export const TextStyled = styled.div`
   grid-row: 3;
   align-self: end;
   @media all and (max-width: ${Breakpoint.md}em) {
-    justify-content: center;
-    margin: ${Spacing.Default};
     flex-direction: row;
+    justify-self: center;
+    align-items: center;
     span {
-      margin: 0 ${Spacing.XXSmall};
+      margin: 4px;
     }
   }
 `;
@@ -53,11 +51,9 @@ export const BackgroundMobileStyled = styled.div`
   position: relative;
   z-index: ${ZIndex.Background};
   overflow: hidden;
-  display: flex;
-  align-items: center;
 `;
 
 export const SelectMobileStyled = styled.div`
-display: flex;
-justify-content: center;
-`
+  display: flex;
+  justify-content: center;
+`;

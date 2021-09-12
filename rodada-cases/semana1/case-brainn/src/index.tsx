@@ -5,7 +5,7 @@ import { App } from "./App";
 import { GlobalStyled } from "./atomic";
 
 const client = new ApolloClient({
-  uri: process.env.APOLLO_URI,
+  uri: "https://brainn-api-loterias.herokuapp.com/graphql",
   cache: new InMemoryCache(),
 });
 ReactDOM.render(

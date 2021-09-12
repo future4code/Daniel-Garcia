@@ -7,11 +7,14 @@ import {
   TextStyled,
 } from "./drawgames-result.component.styled";
 
-export const DrawGamesResult: React.FC = () => {
+interface DrawGamesResultProps {
+  numbers: string[];
+}
+export const DrawGamesResult: React.FC<DrawGamesResultProps> = (props) => {
   return (
     <ResultWrapperStyled>
       <CirclesStyled>
-        <ResultCircles results={[1,2,3,4,5,6]}/>
+        <ResultCircles results={props.numbers} />
       </CirclesStyled>
       <TextStyled>
         <Body center>

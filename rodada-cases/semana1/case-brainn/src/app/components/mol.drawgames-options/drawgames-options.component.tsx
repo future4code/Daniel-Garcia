@@ -3,7 +3,7 @@ import { BackgroundDesktop } from "../../../assets/img/background-desktop";
 import { BackgroundMobile } from "../../../assets/img/background-mobile";
 import { Body1, Body2, H1 } from "../../../atomic";
 import { MatchMedia } from "../atm.matchmedia";
-import { SelectDrawGame } from "../atm.select-drawgame";
+import { stringTodrawGame, SelectDrawGame } from "../atm.select-drawgame";
 import {
   BackgroundDesktopStyled,
   BackgroundMobileStyled,
@@ -14,16 +14,23 @@ import {
   TextStyled,
 } from "./drawgames-options.component.styled";
 
-export const DrawGamesOptions = () => {
+interface DrawGamesOptionsProps {
+  page: string;
+  id: string;
+  data: string;
+}
+
+export const DrawGamesOptions: React.FC<DrawGamesOptionsProps> = (props) => {
+  const data = props.data?.split("T")[0].split("-").reverse().join("/");
   return (
     <>
       <MatchMedia breakPoint="md">
         {(isMobile) =>
           isMobile ? (
-            <DrawGameMobile />
+            <DrawGameMobile page={props.page} id={props.id} data={data} />
           ) : (
             <>
-              <DrawGamesDesktop />
+              <DrawGamesDesktop page={props.page} id={props.id} data={data} />
             </>
           )
         }
@@ -32,29 +39,31 @@ export const DrawGamesOptions = () => {
   );
 };
 
-const DrawGamesDesktop = () => {
+const DrawGamesDesktop: React.FC<DrawGamesOptionsProps> = (props) => {
   return (
     <>
       <BackgroundDesktopStyled>
         <BackgroundDesktop />
       </BackgroundDesktopStyled>
       <ElementsStyled>
-        <SelectDrawGame page="megasena" />
+        <SelectDrawGame page={props.page} />
         <LogoStyled>
           <Ic4LeafCover />
           <SpacingStyled />
-          <H1>Mega-Sena</H1>
+          <H1>{stringTodrawGame(props.page)}</H1>
         </LogoStyled>
         <TextStyled>
           <Body1 noMargin>CONCURSO</Body1>
-          <Body2>4351-trololo</Body2>
+          <Body2>
+            {props.id} - {props.data}
+          </Body2>
         </TextStyled>
       </ElementsStyled>
     </>
   );
 };
 
-export const DrawGameMobile = () => {
+export const DrawGameMobile: React.FC<DrawGamesOptionsProps> = (props) => {
   return (
     <>
       <BackgroundMobileStyled>
@@ -62,16 +71,16 @@ export const DrawGameMobile = () => {
       </BackgroundMobileStyled>
       <ElementsStyled>
         <SelectMobileStyled>
-          <SelectDrawGame page="megasena" />
+          <SelectDrawGame page={props.page} />
         </SelectMobileStyled>
         <LogoStyled>
           <Ic4LeafCover />
           <SpacingStyled />
-          <H1>Mega-Sena</H1>
+          <H1>{stringTodrawGame(props.page)}</H1>
         </LogoStyled>
         <TextStyled>
-          <Body1 noMargin>CONCURSO</Body1>
-          <Body2>4351-trololo</Body2>
+          <Body1 noMargin>CONCURSO N°</Body1>
+          <Body2>{props.id}</Body2>
         </TextStyled>
       </ElementsStyled>
     </>

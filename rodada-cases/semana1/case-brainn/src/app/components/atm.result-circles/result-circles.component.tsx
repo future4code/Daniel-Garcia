@@ -8,10 +8,10 @@ import {
 } from "./result.circles.component.styled";
 
 export interface ResultCirclesProps {
-  results: number[];
+  results: string[];
 }
 export const ResultCircles: React.FC<ResultCirclesProps> = (props) => {
-  const mappedResults = props.results.map((number) => {
+  const mappedResults = props.results?.map((number) => {
     return (
       <ResultCircleWrapper key={number}>
         <MatchMedia breakPoint="md">
