@@ -1,7 +1,7 @@
 import { Ic4LeafCover } from "..";
 import { BackgroundDesktop } from "../../../assets/img/background-desktop";
 import { BackgroundMobile } from "../../../assets/img/background-mobile";
-import { Body1, Body2, H1 } from "../../../atomic";
+import { Body1, Body2, Color, H1 } from "../../../atomic";
 import { MatchMedia } from "../atm.matchmedia";
 import { stringTodrawGame, SelectDrawGame } from "../atm.select-drawgame";
 import {
@@ -43,7 +43,7 @@ const DrawGamesDesktop: React.FC<DrawGamesOptionsProps> = (props) => {
   return (
     <>
       <BackgroundDesktopStyled>
-        <BackgroundDesktop />
+        <BackgroundDesktop fill={stringToColor(props.page)} />
       </BackgroundDesktopStyled>
       <ElementsStyled>
         <SelectDrawGame page={props.page} />
@@ -67,7 +67,7 @@ export const DrawGameMobile: React.FC<DrawGamesOptionsProps> = (props) => {
   return (
     <>
       <BackgroundMobileStyled>
-        <BackgroundMobile />
+        <BackgroundMobile fill={stringToColor(props.page)} />
       </BackgroundMobileStyled>
       <ElementsStyled>
         <SelectMobileStyled>
@@ -85,4 +85,31 @@ export const DrawGameMobile: React.FC<DrawGamesOptionsProps> = (props) => {
       </ElementsStyled>
     </>
   );
+};
+const stringToColor = (page: string): string => {
+  let color = Color.MegaSena;
+  switch (page) {
+    case "megasena":
+      color = Color.MegaSena;
+      break;
+    case "quina":
+      color = Color.Quina;
+      break;
+    case "lotofacil":
+      color = Color.Lotofacil;
+      break;
+    case "lotomania":
+      color = Color.Lotomania;
+      break;
+    case "timemania":
+      color = Color.Timemania;
+      break;
+    case "diadesorte":
+      color = Color.DiaDeSorte;
+      break;
+    default:
+      color = Color.DiaDeSorte;
+      break;
+  }
+  return color;
 };
