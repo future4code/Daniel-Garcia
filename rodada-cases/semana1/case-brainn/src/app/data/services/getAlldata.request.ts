@@ -13,14 +13,14 @@ export const getAllData = (input: string) => {
   }
   const idOfDrawGame = drawGames.data?.loterias?.filter(
     (value: { nome: string }) => value.nome === selectedDrawgame
-  )[0].id;
+  )[0]?.id;
   const concursoVigente = LoteriaConcursoData();
   if (concursoVigente.error) {
     return "error!";
   }
   const selectedGame = concursoVigente.data?.loteriasConcursos.filter(
     (concurso: { loteriaId: any }) => concurso.loteriaId === idOfDrawGame
-  )[0].concursoId;
+  )[0]?.concursoId;
   const resultados = ConcursoData(selectedGame);
   if (resultados.error) {
     return "error!";
