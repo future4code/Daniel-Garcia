@@ -43,7 +43,7 @@ export class Pokemon {
   static toPokemonModel(poke?: any): Pokemon {
     return new Pokemon(
       poke?.pokedex,
-      poke?.NAME,
+      poke?.name,
       poke?.generation,
       poke?.type1,
       poke?.type2,

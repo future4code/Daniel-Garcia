@@ -4,20 +4,6 @@ import { BaseDatabase } from "./baseDatabase";
 export class PokemonDatabase extends BaseDatabase {
   static TABLE_NAME = "pokemon_table";
 
-  async create(data: PokemonDTO) {
-    try {
-      await this.getConnection()
-        .insert({
-          NAME: data.name,
-        })
-        .into(PokemonDatabase.TABLE_NAME);
-    } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      }
-    }
-  }
-
   async getPokemons(data: PokemonDTO): Promise<Pokemon[]> {
     const limit = Number(data.limit);
     const offset = Number(data.offset);
@@ -59,7 +45,7 @@ export class PokemonDatabase extends BaseDatabase {
     }
   }
 
-  async searchByGen(data: PokemonDTO): Promise<Pokemon> {
+  async searchByGen(data: PokemonDTO): Promise<Pokemon | Pokemon[]> {
     const generation = Number(data.generation);
     const limit = Number(data.limit);
     const offset = Number(data.offset);
@@ -76,11 +62,16 @@ export class PokemonDatabase extends BaseDatabase {
         throw new Error(error.message);
       }
     } finally {
+      if (result instanceof Array) {
+        return result.map((poke) => {
+          return Pokemon.toPokemonModel(poke);
+        });
+      }
       return Pokemon.toPokemonModel(result[0]);
     }
   }
 
-  async searchByType(data: PokemonDTO): Promise<Pokemon> {
+  async searchByType(data: PokemonDTO): Promise<Pokemon | Pokemon[]> {
     const type1 = data.type1;
     const type2 = data.type1;
     const limit = Number(data.limit);
@@ -93,12 +84,17 @@ export class PokemonDatabase extends BaseDatabase {
         .where({ type1 })
         .orWhere({ type2 })
         .limit(limit)
-        .offset(offset);;
+        .offset(offset);
     } catch (error) {
       if (error instanceof Error) {
         throw new Error(error.message);
       }
     } finally {
+      if (result instanceof Array) {
+        return result.map((poke) => {
+          return Pokemon.toPokemonModel(poke);
+        });
+      }
       return Pokemon.toPokemonModel(result[0]);
     }
   }
